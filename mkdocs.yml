@@ -1,0 +1,23 @@
+site_name: Ge Wit 't Oit Noit Nie documentatie
+
+nav:
+  - Home: index.md
+  - Over: about.md
+  - GWTONN Bibliotheek:
+      - Programma specificaties: programma.md
+      - Coding Conventies: coding_conventions.md
+
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - python
+    - bash
+    - json
+    - yaml
+    - xml
+    - sql
+    - dockerfile
+    - markdown
+    - powershell
+    - c
