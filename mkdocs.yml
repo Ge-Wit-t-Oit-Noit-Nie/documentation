@@ -2,10 +2,14 @@ site_name: Ge Wit 't Oit Noit Nie documentatie
 
 nav:
   - Home: index.md
-  - Over: about.md
+  - Jaren:
+      - 2025:
+          - Over: year/2025/about.md
+          - Programma specificaties: year/2025/program_specifications.md
   - GWTONN Bibliotheek:
       - Programma specificaties: programma.md
       - Coding Conventies: coding_conventions.md
+  - Over: about.md
 
 theme:
   name: readthedocs
