@@ -1,23 +1,26 @@
-# Welcome to MkDocs
+# Welkom bij de documentatie van GWTONN
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Voor algemene informatie over Ge Wit't Oit Noit Nie kijk op onze [website](https://gewittoitnoitnie.nl/).
 
 ## Project layout
 
+```bash
     mkdocs.yml    # The configuration file.
     docs/
         index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+        year/
+            2025/ # All about the year 2025 setup
+        gwtonn_library/ # Specific information about the general GWTONN Library support
+
+```
 
 ## Prerequisites
 
 De volgende applicaties zijn nodig:
 
-* VSCode: 1.98.2 of hoger
-* [STM32CubeCLT](https://www.st.com/en/development-tools/stm32cubeclt.html#st-get-software): >= 1.18.0
-* [STM32CubeMX](https://www.st.com/en/development-tools/stm32cubemx.html): >= 6.14.0
-* [ST-MCU-FINDER-PC](https://www.st.com/en/development-tools/st-mcu-finder-pc.html): >= 6.1.0
-* [STM32 VSCode Extension](https://marketplace.visualstudio.com/items?itemName=STMicroelectronics.stm32-vscode-extension)
+* [VSCode](https://code.visualstudio.com/): 1.98.2 of hoger
+* [Python](https://www.python.org/)
+* [mkdocs](https://www.mkdocs.org/): >= 1.6.1
 
 Verder worden de volgende extenties aangeraden voor VSCode:
 
@@ -31,46 +34,62 @@ Verder worden de volgende extenties aangeraden voor VSCode:
 * [Markdown Table](https://marketplace.visualstudio.com/items?itemName=TakumiI.markdowntable)
 * [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
 
-### CMake
+### YAML Support
 
-* [CMake Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools)
+* [YAML Language Support by Red Hat](https://marketplace.visualstudio.com/items/?itemName=redhat.vscode-yaml)
 
-### C/C++
+## Basis MKDocs gebruik
 
-* [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-* [C/C++ Extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack)
+### Lokaal bekijken
 
-## Hardware
+Voor het testen van de site gebruik de volgende commando:
 
-Voor het ontwikkelen van de software wordt gebruik gemaakt van de **Nucleo-F412ZG Development** board
-
-## Middlewares
-
-Voor het schrijven van de log op de SD card wordt gebruik gemaakt van een stukje code in `Middlewares/gwtonn/sd_logger.c`.
-Deze code is betrekkelijk simpel. In het vervolg moet hier de logica zitten om de juiste info in de file te krijgen.
-
-> [!IMPORTANT]
-> Voor de `startLogTask` is *3000 WORDS* gereserveerd op de stack. We moeten dus opletten met de code (en dus ook wat opschonen).
-
-De functie `startLogTask` wacht op een item in de queue. Wanneer deze binnen komt, dan wordt er een string gemaakt. Deze string wordt naar de UART gestuurd en ook naar de SD_LOGGER.
-Voor de sd_logger wordt ook gebruik gemaakt van een MUTEX om te voorkomen dat er 2 schrijfacties tegelijk plaatsvinden.
-
-Voor mee details kan je kijken in de beschrijving van de [bibliotheek](./docs/gwtonn_library.md).
-
-## Tips & Tricks
-
-### Hoe vindt ik mijn STM32 Nuleo USB port in Windows 11 met PowerShell
-
-```ps
-Get-PnpDevice -PresentOnly | Where-Object { $_.InstanceId -match '^USB' }
+```ps1
+.\venv\Scripts\activate.ps1
+mkdocs serve
 ```
 
-### Debug of upload geeft een foutmelding
+### Documentatie deployen
 
-![Debug settings](docs/images/set_debugger.png)
+Om de documentatie te deployen, kan je handmatig een deploy starten:
 
-### Mijn VSCode can de code niet compileren
+```ps1
+.\venv\Scripts\activate.ps1
+mkdocs gh-deploy
+```
 
-Controleer of the juiste instellingen voor STM32 zijn gemaakt.
+Dit script al dan een statische site maken en beschikbaar maken op de gh-pages branch. 
 
-![STM32 Extension settings](docs/images/stm32_extention_settings.png)
+> [!WARNING]
+> Als er niet-getrackte bestanden of niet-gecommit werk zijn in de lokale repository waar ```mkdocs gh-deploy``` wordt uitgevoerd, zullen deze worden opgenomen in de pagina's die worden gedeployed.
+
+## Prepareren van het systeem
+
+### Installeren van python virtual environment
+
+Voor het gebruik van mkdocs kan het best gebruik gemaakt worden van een virtuele python omgeving. Deze kan je als volgt maken:
+
+```ps1
+python -m venv venv
+```
+
+Op een windows machine kan je deze activeren met:
+
+```ps1
+.\venv\Scripts\activate.ps1
+```
+
+Op MaOS or Linux kan je deze activeren met:
+
+```bash
+source ./venv/bin/activate
+```
+
+### Installatie mkdocs
+
+Voor het gebruik van ```mkdocs``` kan gebruikt worden van een virtuele python omgeving. Zie voor het opzetten van de omgeving [mkdocs website](https://www.mkdocs.org/getting-started/)
+
+```ps1
+.\venv\Scripts\activate.ps1
+pip install -r requirements.txt
+```

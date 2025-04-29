@@ -1,27 +1,22 @@
 site_name: Ge Wit 't Oit Noit Nie documentatie
 
 nav:
-  - Home: index.md
+  - Welkom: index.md
+  - Coding Conventies: coding_conventions.md
+  - Over: about.md
   - Jaren:
       - 2025:
           - Over: year/2025/about.md
           - Programma specificaties: year/2025/program_specifications.md
   - GWTONN Bibliotheek:
-      - Programma specificaties: programma.md
-      - Coding Conventies: coding_conventions.md
-  - Over: about.md
+      - Algemeen: gwtonn_library/index.md
+      - Programma specificaties: gwtonn_library/programma.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences
 
 theme:
-  name: readthedocs
-  highlightjs: true
-  hljs_languages:
-    - python
-    - bash
-    - json
-    - yaml
-    - xml
-    - sql
-    - dockerfile
-    - markdown
-    - powershell
-    - c
+  name: material

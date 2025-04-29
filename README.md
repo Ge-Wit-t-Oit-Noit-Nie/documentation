@@ -8,7 +8,7 @@ De volgende applicaties zijn nodig:
 
 - mkdocs: >= 1.6.1
 
-## Documentatie testen
+## Documentatie lokaal bekijken
 
 Voor het testen van de site gebruik de volgende commando:
 
@@ -16,6 +16,17 @@ Voor het testen van de site gebruik de volgende commando:
 .\venv\Scripts\activate.ps1
 mkdocs serve
 ```
+
+## Documentatie deployen
+
+Om de documentatie te deployen, kan je handmatig een deploy starten:
+
+```ps1
+.\venv\Scripts\activate.ps1
+mkdocs gh-deploy
+```
+
+Dit script al dan een statische site maken en beschikbaar maken op de gh-pages branch. 
 
 ## Prepareren van het systeem
 

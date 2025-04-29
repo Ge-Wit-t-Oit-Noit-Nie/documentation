@@ -15,11 +15,11 @@ De volgende taal is geadviseerd:
 
 Wanneer je eigen bestanden toevoegd (zoals in de `docs/` folder), dan wordt dit altijd in *lower_case* gedaan.
 
-> [!NOTE]
-> Als uitzondering zijn "CONTRIBUTING.md", "README.md" en "LICENSE". Deze volgen een algemene conventie.
+!!! warning "Waarschuwing"
+    Als uitzondering zijn "CONTRIBUTING.md", "README.md" en "LICENSE". Deze volgen een algemene conventie.
 
-> [!IMPORTANT]
-> Bestanden die gemaakt zijn STM32CubeMX zijn ook uitgezonderd.
+!!! warning "Waarschuwing"
+	Bestanden die gemaakt zijn STM32CubeMX zijn ook uitgezonderd.
 
 ### Underscore
 
