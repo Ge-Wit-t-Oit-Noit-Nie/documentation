@@ -17,7 +17,29 @@ Voor het testen van de site gebruik de volgende commando:
 mkdocs serve
 ```
 
-## Installatie mkdocs
+## Prepareren van het systeem
+
+### Installeren van python virtual environment
+
+Voor het gebruik van mkdocs kan het best gebruik gemaakt worden van een virtuele python omgeving. Deze kan je als volgt maken:
+
+```ps1
+python -m venv venv
+```
+
+Op een windows machine kan je deze activeren met:
+
+```ps1
+.\venv\Scripts\activate.ps1
+```
+
+Op MaOS or Linux kan je deze activeren met:
+
+```bash
+source ./venv/bin/activate
+```
+
+### Installatie mkdocs
 
 Voor het gebruik van ```mkdocs``` kan gebruikt worden van een virtuele python omgeving. Zie voor het opzetten van de omgeving [mkdocs website](https://www.mkdocs.org/getting-started/)
 
