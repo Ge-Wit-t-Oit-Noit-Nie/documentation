@@ -40,6 +40,10 @@ Verder worden de volgende extenties aangeraden voor VSCode:
 
 ## Basis MKDocs gebruik
 
+### Markdown smaak
+
+Voor deze site word gebruik gemaakt van de [admonitations](https://jimandreas.github.io/mkdocs-material/reference/admonitions/) plugin. Deze heeft een speciale manier voor het maken van de waarschuwing, informatie of voorbeeld boxen. Zie de link voor meer informatie. 
+
 ### Lokaal bekijken
 
 Voor het testen van de site gebruik de volgende commando:
@@ -60,8 +64,8 @@ mkdocs gh-deploy
 
 Dit script al dan een statische site maken en beschikbaar maken op de gh-pages branch. 
 
-> [!WARNING]
-> Als er niet-getrackte bestanden of niet-gecommit werk zijn in de lokale repository waar ```mkdocs gh-deploy``` wordt uitgevoerd, zullen deze worden opgenomen in de pagina's die worden gedeployed.
+!!! Warning "Waarschuwing"
+    Als er niet-getrackte bestanden of niet-gecommit werk zijn in de lokale repository waar ```mkdocs gh-deploy``` wordt uitgevoerd, zullen deze worden opgenomen in de pagina's die worden gedeployed.
 
 ## Prepareren van het systeem
 
