@@ -10,6 +10,7 @@ nav:
           - Programma specificaties: year/2025/program_specifications.md
   - GWTONN Bibliotheek:
       - Algemeen: gwtonn_library/index.md
+      - Logger: gwtonn_library/logger.md
       - Programma specificaties: gwtonn_library/programma.md
 
 markdown_extensions:
