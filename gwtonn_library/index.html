@@ -12,7 +12,7 @@
         <link rel="prev" href="../year/2025/program_specifications/">
       
       
-        <link rel="next" href="programma/">
+        <link rel="next" href="logger/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -496,9 +496,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sd-card-logger-freertos-implementation" class="md-nav__link">
+  <a href="#logger-freertos-implementation" class="md-nav__link">
     <span class="md-ellipsis">
-      SD Card Logger - FreeRTOS implementation
+      Logger - FreeRTOS implementation
     </span>
   </a>
   
@@ -526,6 +526,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="logger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Logger
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -597,9 +620,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sd-card-logger-freertos-implementation" class="md-nav__link">
+  <a href="#logger-freertos-implementation" class="md-nav__link">
     <span class="md-ellipsis">
-      SD Card Logger - FreeRTOS implementation
+      Logger - FreeRTOS implementation
     </span>
   </a>
   
@@ -643,16 +666,17 @@
 <ul>
 <li><a href="#ge-witt-oit-noit-nie-bibliotheek">Ge Wit't Oit Noit Nie bibliotheek</a></li>
 <li><a href="#programma-controller">Programma controller</a></li>
-<li><a href="#sd-card-logger-freertos-implementation">SD Card Logger - FreeRTOS implementation</a></li>
+<li><a href="#logger-freertos-implementation">Logger - FreeRTOS implementation</a></li>
 <li><a href="#message-mechanisme">Message mechanisme</a></li>
 <li><a href="#fatfs-met-de-sd-card-controller-via-spi">FatFS met de SD Card Controller via SPI</a></li>
 </ul>
 <p>Om het overzichtelijk te houden, is er een losse bibliotheek gemaakt voor Ge Wit't Oit Noit Nie. De bibliotheek is te vinden in <code>{workspace}/Middlewares/gwtonn</code>.</p>
 <h2 id="programma-controller">Programma controller</h2>
 <p>Voor het uitvoeren van de programma, is er een programma controller. De details staan beschreven in <a href="programma/">programma.md</a>.</p>
-<h2 id="sd-card-logger-freertos-implementation">SD Card Logger - FreeRTOS implementation</h2>
-<p>De <code>sd_logger</code> implementeerd functionaliteiten om een log te schrijven op een SD kaart (Via de SPI Interface).</p>
-<p>De <code>void startLogTask(void *argument)</code> is geimplementeerd in the bilbiotheek. De functie is <code>__weak</code> gemaakt in <code>freertos.c</code>. Om dit te laten werken, is in de STM32CubeMX programma een FreeRTOS taak gemaakt met de naam <strong>logTask</strong> en de functie <code>startLogTask</code>. De <strong>Code Generation Option</strong> is ingesteld op <strong>As Weak</strong>.</p>
+<h2 id="logger-freertos-implementation">Logger - FreeRTOS implementation</h2>
+<p>De <code>logger</code> implementeerd functionaliteiten om een log te schrijven op een SD kaart (Via de SPI Interface).</p>
+<p>De <code>void start_logger(void *argument)</code> is geimplementeerd in the bilbiotheek. De functie is <code>__weak</code> gemaakt in <code>freertos.c</code>. Om dit te laten werken, is in de STM32CubeMX programma een FreeRTOS taak gemaakt met de naam <strong>logTask</strong> en de functie <code>start_logger</code>. De <strong>Code Generation Option</strong> is ingesteld op <strong>As Weak</strong>.</p>
+<p>Voor details over de logger, kijk in de hoofdstuk over de <a href="logger/">logger</a>.</p>
 <h2 id="message-mechanisme">Message mechanisme</h2>
 <p>Om een berichte te schrijven op de SD kaart, kan een specifieke wachtrij gevuld worden. Deze rij heet <strong>loggerQueue</strong>. De queue wordt uitmatisch gemaakt bij het schrijven van de broncode vanuit STM32CubeMX.</p>
 <p>Om een bericht te sturen moet je <code>sd_logger.h</code> laden in de c code. Daarna kan de volgende code toegevoegd worden:</p>
