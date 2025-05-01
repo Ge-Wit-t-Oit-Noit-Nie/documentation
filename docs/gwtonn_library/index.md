@@ -2,7 +2,7 @@
 
 - [Ge Wit't Oit Noit Nie bibliotheek](#ge-witt-oit-noit-nie-bibliotheek)
   - [Programma controller](#programma-controller)
-  - [SD Card Logger - FreeRTOS implementation](#sd-card-logger-freertos-implementation)
+  - [Logger - FreeRTOS implementation](#logger-freertos-implementation)
   - [Message mechanisme](#message-mechanisme)
   - [FatFS met de SD Card Controller via SPI](#fatfs-met-de-sd-card-controller-via-spi)
 
@@ -12,11 +12,13 @@ Om het overzichtelijk te houden, is er een losse bibliotheek gemaakt voor Ge Wit
 
 Voor het uitvoeren van de programma, is er een programma controller. De details staan beschreven in [programma.md](programma.md).
 
-## SD Card Logger - FreeRTOS implementation
+## Logger - FreeRTOS implementation
 
-De `sd_logger` implementeerd functionaliteiten om een log te schrijven op een SD kaart (Via de SPI Interface).
+De `logger` implementeerd functionaliteiten om een log te schrijven op een SD kaart (Via de SPI Interface).
 
-De `void startLogTask(void *argument)` is geimplementeerd in the bilbiotheek. De functie is `__weak` gemaakt in `freertos.c`. Om dit te laten werken, is in de STM32CubeMX programma een FreeRTOS taak gemaakt met de naam **logTask** en de functie `startLogTask`. De **Code Generation Option** is ingesteld op **As Weak**.
+De `void start_logger(void *argument)` is geimplementeerd in the bilbiotheek. De functie is `__weak` gemaakt in `freertos.c`. Om dit te laten werken, is in de STM32CubeMX programma een FreeRTOS taak gemaakt met de naam **logTask** en de functie `start_logger`. De **Code Generation Option** is ingesteld op **As Weak**.
+
+Voor details over de logger, kijk in de hoofdstuk over de [logger](logger.md).
 
 ## Message mechanisme
 
