@@ -537,8 +537,35 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Programmeren">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instuctieset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instuctieset
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geheugen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geheugen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geheugen">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geheugen-vulling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geheugen vulling
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#data-gebruik" class="md-nav__link">
@@ -551,15 +578,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instuctieset" class="md-nav__link">
-    <span class="md-ellipsis">
-      Instuctieset
-    </span>
-  </a>
   
 </li>
       
@@ -636,8 +654,35 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Programmeren">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instuctieset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instuctieset
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geheugen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geheugen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geheugen">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geheugen-vulling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geheugen vulling
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#data-gebruik" class="md-nav__link">
@@ -650,15 +695,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instuctieset" class="md-nav__link">
-    <span class="md-ellipsis">
-      Instuctieset
-    </span>
-  </a>
   
 </li>
       
@@ -707,7 +743,7 @@
 <h2 id="programmeren">Programmeren</h2>
 <p>Maak een bestand met de naam "programma.h" en plaats hierin het programma. Zie <a href="#voorbeeld-programma">voorbeeld programma</a> voor een voorbeeld.
 Ieder programma moet minimaal een <code>OPCODE_HALT</code> regel bevatten.</p>
-<p>Het programma wordt weggeschreven in een vast stukje van het geheugen: <strong>offset 0x08000000 + grote van FLASH</strong>. Dit is terug te vinden in het onderstaande stukje in de <code>STM32F412XX_FLASH.ld</code>.</p>
+<p>Het programma wordt weggeschreven in een vast stukje van het geheugen. Dit wordt uitgelegd in het hoofdstuk <a href="#geheugen">geheugen</a></p>
 <p>We hebben te maken met een 32-bit system, daarom kunnen we uitgaan van de volgende grote:</p>
 <ul>
 <li><code>OPCODE</code>: 4 bytes</li>
@@ -716,28 +752,6 @@ Ieder programma moet minimaal een <code>OPCODE_HALT</code> regel bevatten.</p>
 <p>Dus de grootte van de struct, voordat eventuele padding wordt toegepast, is: OPCODE + (3 x VOID<em>) = </em><em>16 bytes</em>*.</p>
 <p>Voor een array met <em>255</em> elementen, is de totale benodigde grootte:
 <strong>255 * 16 = 4080 bytes.</strong></p>
-<div class="highlight"><pre><span></span><code>/*Specify the memory areas*/
-MEMORY
-{
-    RAM (xrw)      : ORIGIN = 0x20000000, LENGTH = 256K
-    FLASH (rx)     : ORIGIN = 0x08000000, LENGTH = 1024K - 4080
-    RESERVED (rw)  : ORIGIN = 0x08000000 + (1024K - 4080), LENGTH = 4080
-}
-</code></pre></div>
-<h3 id="data-gebruik">Data gebruik</h3>
-<p>Na het linken van de code, wordt er een overzicht gegeven van het geheugen en de grote. De volgende 3 regio's zijn aanwezig:</p>
-<ul>
-<li>RAM</li>
-<li>FLASH</li>
-<li>RESERVED</li>
-</ul>
-<p>Het programma wordt opgeslagen in het <code>RESERVED</code> blok. De volledige block is beschikbaar voor het maken van een programma.</p>
-<p>Voorbeeld van een output. In deze output is te zien dat <em>5.49%</em> gebruikt is.</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>build<span class="o">]</span><span class="w"> </span>Memory<span class="w"> </span>region<span class="w">         </span>Used<span class="w"> </span>Size<span class="w">  </span>Region<span class="w"> </span>Size<span class="w">  </span>%age<span class="w"> </span>Used
-<span class="o">[</span>build<span class="o">]</span><span class="w">              </span>RAM:<span class="w">       </span><span class="m">25872</span><span class="w"> </span>B<span class="w">       </span><span class="m">256</span><span class="w"> </span>KB<span class="w">      </span><span class="m">9</span>.87%
-<span class="o">[</span>build<span class="o">]</span><span class="w">            </span>FLASH:<span class="w">       </span><span class="m">55824</span><span class="w"> </span>B<span class="w">    </span><span class="m">1044496</span><span class="w"> </span>B<span class="w">      </span><span class="m">5</span>.34%
-<span class="o">[</span>build<span class="o">]</span><span class="w">         </span>RESERVED:<span class="w">         </span><span class="m">224</span><span class="w"> </span>B<span class="w">       </span><span class="m">4080</span><span class="w"> </span>B<span class="w">      </span><span class="m">5</span>.49%
-</code></pre></div>
 <h2 id="instuctieset">Instuctieset</h2>
 <p>Een programma kan gemaakt worden door het opzetten van een instructie set. De onderstaande tabel bevat een overzicht van de functies.</p>
 <table>
@@ -810,6 +824,40 @@ MEMORY
 </tr>
 </tbody>
 </table>
+<h2 id="geheugen">Geheugen</h2>
+<p>Voor het verwerken van het progamma heeft de firmware een stukje geheugen gereserveerd. Op de STM32F412xG zijn 11 sectoren in het geheugen aanwezig. Voor onze firmware reserveren we een sector om het programm in op te slaan. Door een hele sector te reserveren kunnen we Over-the-Air updates of updates vanaf de SD Card beter uitvoeren.</p>
+<p>Binnen de F412xG zijn de eerste 5 sectoren 64Kb per stuk. De andere sectoren zijn 128Kb per stuk. Aangezien we ons programm aan het einde willen opslaan in de firmware, betekend dit dat we 128Kb tot onze beschikking hebben.</p>
+<p>In de <a href="https://github.com/Ge-Wit-t-Oit-Noit-Nie/2025-software/blob/main/STM32F412XX_FLASH.ld">linker script</a> is dit terug te vinden:</p>
+<div class="highlight"><pre><span></span><code>MEMORY
+{
+    RAM (xrw)      : ORIGIN = 0x20000000, LENGTH = 256K
+    FLASH (rx)     : ORIGIN = 0x08000000, LENGTH = 1024K - 128k
+    RESERVED (rw)  : ORIGIN = 0x080E0000, LENGTH = 128k
+}
+  .program_data_block :
+  {
+    . = ALIGN(4);
+    FILL(0x00)
+    *(.program_data_block)
+    . = ALIGN(4);
+  } &gt; RESERVED 
+</code></pre></div>
+<h3 id="geheugen-vulling">Geheugen vulling</h3>
+<p>Bij het reserveren van de sector (zie vorige paragraaf) wordt het geheugen gevult met 0x00. Doordat de HALT instructie de waarde 0x00 heeft, zal effectief het hele geheugen dus vol staan met HALT (totdat er een programma geladen wordt).</p>
+<h3 id="data-gebruik">Data gebruik</h3>
+<p>Na het linken van de code, wordt er een overzicht gegeven van het geheugen en de grote. De volgende 3 regio's zijn aanwezig:</p>
+<ul>
+<li>RAM</li>
+<li>FLASH</li>
+<li>RESERVED</li>
+</ul>
+<p>Het programma wordt opgeslagen in het <code>RESERVED</code> blok. De volledige block is beschikbaar voor het maken van een programma.</p>
+<p>Voorbeeld van een output. In deze output is te zien dat <em>5.49%</em> gebruikt is.</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>build<span class="o">]</span><span class="w"> </span>Memory<span class="w"> </span>region<span class="w">         </span>Used<span class="w"> </span>Size<span class="w">  </span>Region<span class="w"> </span>Size<span class="w">  </span>%age<span class="w"> </span>Used
+<span class="o">[</span>build<span class="o">]</span><span class="w">              </span>RAM:<span class="w">       </span><span class="m">25872</span><span class="w"> </span>B<span class="w">       </span><span class="m">256</span><span class="w"> </span>KB<span class="w">      </span><span class="m">9</span>.87%
+<span class="o">[</span>build<span class="o">]</span><span class="w">            </span>FLASH:<span class="w">       </span><span class="m">55824</span><span class="w"> </span>B<span class="w">    </span><span class="m">1044496</span><span class="w"> </span>B<span class="w">      </span><span class="m">5</span>.34%
+<span class="o">[</span>build<span class="o">]</span><span class="w">         </span>RESERVED:<span class="w">         </span><span class="m">224</span><span class="w"> </span>B<span class="w">       </span><span class="m">4080</span><span class="w"> </span>B<span class="w">      </span><span class="m">5</span>.49%
+</code></pre></div>
 <h2 id="voorbeeld-programma">Voorbeeld programma</h2>
 <h3 id="simple-programma-om-de-blauwe-led-te-knipperen">Simple programma om de blauwe led te knipperen</h3>
 <p>Declareer de blauwe led met <code>BLUE_LED_Pin</code> en zorg dat deze op <code>BLUE_LED_GPIO_Port</code> gemount zit.</p>
