@@ -275,6 +275,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#leesbaarheid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leesbaarheid
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bestandsnamen" class="md-nav__link">
     <span class="md-ellipsis">
       Bestandsnamen
@@ -297,6 +306,48 @@
   <a href="#underscore" class="md-nav__link">
     <span class="md-ellipsis">
       Underscore
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#declaraties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Declaraties
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Declaraties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typdef-defenities" class="md-nav__link">
+    <span class="md-ellipsis">
+      typdef defenities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enumeraties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enumeraties
     </span>
   </a>
   
@@ -633,6 +684,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#leesbaarheid" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leesbaarheid
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bestandsnamen" class="md-nav__link">
     <span class="md-ellipsis">
       Bestandsnamen
@@ -655,6 +715,48 @@
   <a href="#underscore" class="md-nav__link">
     <span class="md-ellipsis">
       Underscore
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#declaraties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Declaraties
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Declaraties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typdef-defenities" class="md-nav__link">
+    <span class="md-ellipsis">
+      typdef defenities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enumeraties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enumeraties
     </span>
   </a>
   
@@ -714,21 +816,66 @@
 </tr>
 </tbody>
 </table>
+<h2 id="leesbaarheid">Leesbaarheid</h2>
+<p>De code dient leesbaar geshreven te worden. Dit houdt in dat er zoveel mogelijk woorden uitgeschreven worden en geen afkortingen gebruikt worden.</p>
+<p>Voorbeelden:</p>
+<ul>
+<li><strong>get_time</strong>: Correct</li>
+<li><strong>gt_tm</strong>: Niet correct</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Wanneer een prefix gedaan wordt binnen een header om de functies uniek te maken, dan is dit toegestaan: <code>is_get_time</code> voor een functie binnen de <code>internal_sensor</code> header file.</p>
+</div>
 <h2 id="bestandsnamen">Bestandsnamen</h2>
 <h3 id="lower_case">lower_case</h3>
 <p>Wanneer je eigen bestanden toevoegd (zoals in de <code>docs/</code> folder), dan wordt dit altijd in <em>lower_case</em> gedaan.</p>
 <div class="admonition warning">
 <p class="admonition-title">Waarschuwing</p>
-<p>Als uitzondering zijn "CONTRIBUTING.md", "README.md" en "LICENSE". Deze volgen een algemene conventie.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Waarschuwing</p>
-<p>Bestanden die gemaakt zijn STM32CubeMX zijn ook uitgezonderd.</p>
+<p>Als uitzondering zijn "CONTRIBUTING.md", "README.md" en "LICENSE". Deze volgen een algemene conventie.
+Bestanden die gemaakt zijn STM32CubeMX zijn ook uitgezonderd.</p>
 </div>
 <h3 id="underscore">Underscore</h3>
 <p>Wanneer een bestandsnaam uit meerdere woorden bestaad (zoals in dit bestand), dan wordt er altijd gebruik gemaakt van een <em>underscore</em>.</p>
+<h2 id="declaraties">Declaraties</h2>
+<h3 id="structure">structure</h3>
+<p>Wanneer een structure aangemaakt wordt, dan wordt deze in lowercase geschreven. Geen toevoegingen, maar wel <code>_</code> om woorden te scheiden.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">program_controller_registers</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">instruction_pointer</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">shutdown_instruction_pointer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div>
+<h3 id="typdef-defenities">typdef defenities</h3>
+<p>Een typedef wordt geschreven in lowercase. Tevens wordt de toevoeging <code>_t</code> gedaan om te benadrukken dat het een typedef is.</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">instruction_pointer</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">shutdown_instruction_pointer</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">program_controller_registers_t</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="enumeraties">Enumeraties</h3>
+<p>Enumeraties worden in hoofdletters geschreven. Wanneer een typedef gemaakt wordt van een enumeratie dan wordt deze (in tegenstellign tot <a href="#typdef-defenities">typedef</a>) met hoofdtellers geschreven en zonder <code>_t</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Control flow</span>
+<span class="w">    </span><span class="n">OPCODE_HALT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OPCODE_JUMP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x01</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OPCODE_STORE_SHUTDOWN_INDEX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x02</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1">// Specific</span>
+<span class="w">    </span><span class="n">OPCODE_PIN_TOGGLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OPCODE_PIN_STATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1">// Program related</span>
+<span class="w">    </span><span class="n">OPCODE_DELAY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x20</span><span class="p">,</span>
+<span class="w">    </span><span class="n">OPCODE_LOG_PROGRAM_STATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x21</span><span class="p">,</span>
+
+<span class="p">}</span><span class="w"> </span><span class="n">OPCODE</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="markdown">Markdown</h2>
 <p>Voor de documentatie word gebruik gemaakt van Markdown. Meer specifiek de GitHub variant: <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">GitHub specificatie</a></p>
+<p>Voor de callouts (WARNING, INFO, ...) wordt gebruik gemaakt van de <a href="https://jimandreas.github.io/mkdocs-material/reference/admonitions/">admonitations</a> plugin. Deze heeft een speciale manier voor het maken van de waarschuwing, informatie of voorbeeld boxen. Zie de link voor meer informatie.</p>
 
 
 

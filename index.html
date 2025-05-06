@@ -303,15 +303,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#markdown-smaak" class="md-nav__link">
-    <span class="md-ellipsis">
-      Markdown smaak
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#lokaal-bekijken" class="md-nav__link">
     <span class="md-ellipsis">
       Lokaal bekijken
@@ -758,15 +749,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#markdown-smaak" class="md-nav__link">
-    <span class="md-ellipsis">
-      Markdown smaak
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#lokaal-bekijken" class="md-nav__link">
     <span class="md-ellipsis">
       Lokaal bekijken
@@ -871,8 +853,6 @@
 <li><a href="https://marketplace.visualstudio.com/items/?itemName=redhat.vscode-yaml">YAML Language Support by Red Hat</a></li>
 </ul>
 <h2 id="basis-mkdocs-gebruik">Basis MKDocs gebruik</h2>
-<h3 id="markdown-smaak">Markdown smaak</h3>
-<p>Voor deze site word gebruik gemaakt van de <a href="https://jimandreas.github.io/mkdocs-material/reference/admonitions/">admonitations</a> plugin. Deze heeft een speciale manier voor het maken van de waarschuwing, informatie of voorbeeld boxen. Zie de link voor meer informatie. </p>
 <h3 id="lokaal-bekijken">Lokaal bekijken</h3>
 <p>Voor het testen van de site gebruik de volgende commando:</p>
 <div class="highlight"><pre><span></span><code><span class="p">.\</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">activate</span><span class="p">.</span><span class="n">ps1</span>
@@ -883,10 +863,14 @@
 <div class="highlight"><pre><span></span><code><span class="p">.\</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">activate</span><span class="p">.</span><span class="n">ps1</span>
 <span class="n">mkdocs</span> <span class="n">gh-deploy</span>
 </code></pre></div>
-<p>Dit script al dan een statische site maken en beschikbaar maken op de gh-pages branch. </p>
+<p>Dit script al dan een statische site maken en beschikbaar maken op de gh-pages branch.</p>
 <div class="admonition warning">
 <p class="admonition-title">Waarschuwing</p>
 <p>Als er niet-getrackte bestanden of niet-gecommit werk zijn in de lokale repository waar <code>mkdocs gh-deploy</code> wordt uitgevoerd, zullen deze worden opgenomen in de pagina's die worden gedeployed.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Opmerking</p>
+<p>Dit is niet noodzakelijk. Tijdens het mergen van een pull request gebeurt het automatisch.</p>
 </div>
 <h2 id="prepareren-van-het-systeem">Prepareren van het systeem</h2>
 <h3 id="installeren-van-python-virtual-environment">Installeren van python virtual environment</h3>
