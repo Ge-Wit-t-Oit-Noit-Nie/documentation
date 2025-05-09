@@ -2,23 +2,15 @@
 
 De volgende instructies zijn beschikbaar:
 
-- [Instructieset](#instructieset)
-  - [STOPPEN](#stoppen)
-    - [Voorbeeld](#voorbeeld)
-  - [BEGIN\_EINDE\_PROGRAMMA\_INDEX](#begin_einde_programma_index)
-    - [Voorbeeld](#voorbeeld-1)
-  - [Wachten](#wachten)
-    - [Voorbeeld](#voorbeeld-2)
-  - [ZET\_PORT\_AAN](#zet_port_aan)
-    - [Voorbeeld](#voorbeeld-3)
-  - [ZET\_PORT\_UIT](#zet_port_uit)
-    - [Voorbeeld](#voorbeeld-4)
-  - [FLIP\_POORT](#flip_poort)
-    - [Voorbeeld](#voorbeeld-5)
-  - [BEWAAR\_STATUS](#bewaar_status)
-    - [Voorbeeld](#voorbeeld-6)
-  - [SPRING](#spring)
-    - [Voorbeeld](#voorbeeld-7)
+<!-- no toc -->
+- [STOPPEN](#stoppen)
+- [BEGIN\_EINDE\_PROGRAMMA\_INDEX](#begin_einde_programma_index)
+- [Wachten](#wachten)
+- [ZET\_PORT\_AAN](#zet_port_aan)
+- [ZET\_PORT\_UIT](#zet_port_uit)
+- [FLIP\_POORT](#flip_poort)
+- [BEWAAR\_STATUS](#bewaar_status)
+- [SPRING](#spring)
 
 ## STOPPEN
 

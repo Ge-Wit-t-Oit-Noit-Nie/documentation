@@ -76,6 +76,14 @@ Met de volgende parameters:
 * -o, --output: het .bin bestand dat gemaakt wordt
 * -v, --verbose: Volg de uitput
 
+## Toevoegen aan de firmware
+
+Voor het gebruik van het programma in de firmware:
+
+1. copieer het bestand ```binary_file.bin``` naar de repository **2025-software** in de root.
+2. Maak de cache voor ```CMake``` leeg een compileer de firmware.
+3. Upload de firmware.
+
 ### Voorbeeld
 
 ```ps1
