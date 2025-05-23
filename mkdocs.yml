@@ -11,8 +11,11 @@ nav:
       - Algemeen: gwtonn_library/index.md
       - Logger: gwtonn_library/logger.md
       - Programma specificaties: gwtonn_library/programma.md
-      - Hardware: gwtonn_hardware/hardware.md
-      - Hardware handleiding: gwtonn_hardware/handleiding.md
+  - Hardware: 
+      - Algemeen: gwtonn_hardware/index.md
+      - Busarchitectuur: gwtonn_hardware/bus.md
+      - Microcontroller: gwtonn_hardware/uc.md
+      - Handleiding: gwtonn_hardware/handleiding.md
   - Ontwikkeling:
       - Algemeen: development/index.md
       - Coding conventies: development/coding_conventions.md
