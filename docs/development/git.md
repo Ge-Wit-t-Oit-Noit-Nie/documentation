@@ -54,14 +54,38 @@ Bij het inchecken van de wijzigingen, moet er een omschrijving opgegeven worden.
 Vervolgens kan je een lege regel laten en uitgebreid beschrijven wat er gewijzig is. Een volledige commit heeft dan de volgende inhoud:
 
 ```text
-Aanpassen van FLASH allocatie voor programma Fixes #56
+Fixes #10: Betere ontwikkel documentatie 
 
-Sector 11 gereserveerd voor het programma.
-Het reserveren van sector 0 was niet mogelijk, aangezien STM32 verwacht dat de firmware hier start
+- Menu structuur aangepast zodat er ween kopje voor ontwikkelen hebben.
+- Git pagina gemaakt met uitleg over Git + werkwijze
 ```
 
 Hierbij zie je dat er een aanpassing is geweest die een aanpassing doet op \#56. Ook is beschreven waarom en wat er gewijzigd is.
 
 !!! tip "Tip"
-    Je schrijft de codecommit bericht voor iemand die wellicht niet weet wat de wijziging inhoud. Het is dus van belang dat de ontvangende partij moet snappen wat er gebreurt. 
+    Je schrijft de codecommit bericht voor iemand die wellicht niet weet wat de wijziging inhoud. Het is dus van belang dat de ontvangende partij moet snappen wat er gebreurt.
+
+Nadat de aanpassing klaar is, kan je alle wijzigingen publiceren door de feature branch te pushen naar Github. Daarna kan je een [pull request](#pull-request) aanmaken.
+
+![Scherm in VSCode voor het versturen van de branch](../assets/images/vscode_github_publish_branch.png "Publish branch")
+
+## Pull request
+
+Wanneer je een of meerdere wijzigingen doorgevoerd hebt, en je bent klaar, dan ga je een pull request aanmaken. Dit kan vanuit VSCode, maar ook online.
+
+![Scherm in VSCode met de vraag voor het maken van een poll request](../assets/images/vscode_github_question_pull_request.png "Vraag om pull request")
+
+Het is belangrijk dat je de pull request doorzet naar iemand anders die dan de wijzigingen kan controleren en eventueel accepteren.
+
+![Scherm in VSCode voor het maken van een poll request](../assets/images/vscode_github_create_pull_request.png "Pull request maken")
+
+Na het invullen van een goede beschrijving, kan je op create clicken en zal de pull request doorgezet worden. Bij het invullen kan er voor gekozen worden alvast een "Assignee" toe te voegen. Hiervoor dien je op het rond omcircelde knopje te drukken.
+
+![Scherm in VSCode voor het selecteren van een asignee](../assets/images/vscode_github_create_pull_request_highligh_assignee.png "Assignee kiezen")
+`
+
+!!! tip "Tip"
+    Als je in dit scherm fouten maakt of iets vergeet en je hebt al op "Create" gedrukt, dan kan je altijd online nog aanpassingen maken. Ga hiervoor naar het pull requests scherm.
+    ![Scherm in Github met de pull requests tab](../assets/images/github_pull_requests.png "Pull requests tab")
+
 
