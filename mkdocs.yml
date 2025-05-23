@@ -14,8 +14,7 @@ nav:
   - Hardware: 
       - Algemeen: gwtonn_hardware/index.md
       - Busarchitectuur: gwtonn_hardware/bus.md
-      - Microcontroller: gwtonn_hardware/uc.md
-      - Handleiding: gwtonn_hardware/handleiding.md
+      - Basismodule Handleiding: gwtonn_hardware/piggyback.md
   - Ontwikkeling:
       - Algemeen: development/index.md
       - Coding conventies: development/coding_conventions.md
