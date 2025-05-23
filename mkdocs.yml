@@ -2,7 +2,6 @@ site_name: Ge Wit 't Oit Noit Nie documentatie
 
 nav:
   - Welkom: index.md
-  - Coding Conventies: coding_conventions.md
   - Over: about.md
   - Jaren:
       - 2025:
@@ -12,7 +11,11 @@ nav:
       - Algemeen: gwtonn_library/index.md
       - Logger: gwtonn_library/logger.md
       - Programma specificaties: gwtonn_library/programma.md
-
+  - Ontwikkeling:
+      - Algemeen: development/index.md
+      - Coding conventies: development/coding_conventions.md
+      - Git: development/git.md
+      
 markdown_extensions:
   - admonition
   - pymdownx.details
