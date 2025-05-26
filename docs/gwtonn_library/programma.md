@@ -4,34 +4,195 @@ Het hele idee van de controller is om een progarmma uit te voeren. Om dit flexib
 
 ## Programmeren
 
-Maak een bestand met de naam "programma.h" en plaats hierin het programma. Zie [voorbeeld programma](#voorbeeld-programma) voor een voorbeeld.
-Ieder programma moet minimaal een `OPCODE_HALT` regel bevatten.
+Een programma wordt geschreven in een textfile. Deze kan een willekeurige extentie hebben, maar ```.gpc``` is de standaard.
 
-Het programma wordt weggeschreven in een vast stukje van het geheugen. Dit wordt uitgelegd in het hoofdstuk [geheugen](#geheugen)
+Een programma bestaat uit een [instructie](#instructieset) per regel.
 
-We hebben te maken met een 32-bit system, daarom kunnen we uitgaan van de volgende grote:
+Als voorbeeld:
 
-- ```OPCODE```: 4 bytes
-- ```void *```: 4 bytes
+```txt
+BEGIN_EINDE_PROGRAMMA_INDEX (index=0x0007);
+ZET_PORT_AAN (PORTNR=0x00, HSIO=0x00);
+ZET_PORT_UIT (PORTNR=0x01, HSIO=0x00);
+WACHTEN (delay=0x05DC);
+FLIP_POORT (PORTNR=0x01, HSIO=1);
+BEWAAR_STATUS;
+SPRING (index=0x0003);
+BEWAAR_STATUS;
+STOPPEN;
+```
 
-Dus de grootte van de struct, voordat eventuele padding wordt toegepast, is: OPCODE + (3 x VOID*) = **16 bytes**.
+In dit programma, worden de volgende stappen uitgevoerd:
 
-Voor een array met *255* elementen, is de totale benodigde grootte:
-**255 * 16 = 4080 bytes.**
+1. Bewaar de positie van voor het einde van de programma (instructie 8)
+2. Wacht voor 1500ms
+3. Zet de IO port 1 op hoog
+4. Zet de IO port 1 op laag
+5. Flip de high-speed IO port 1
+6. bewaar de status (telemetry)
+7. spring terug naar de 2de instructie
+8. stop het programma
 
-## Instuctieset
+## Compileren
 
-Een programma kan gemaakt worden door het opzetten van een instructie set. De onderstaande tabel bevat een overzicht van de functies.
+Op zichzelf kan ene prorgramma niet uitgevoerd worden. Deze moet gecompileerd worden, en vervolgens geladen worden. 
 
-| Functie                     | OpCode | Parameter 0                                                                                                                                                              | Parameter 1                                  | Parameter 2                    | Omschrijving                                                                      |
-| --------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------- | ------------------------------ | --------------------------------------------------------------------------------- |
-| OPCODE_HALT                 | 0x00   |                                                                                                                                                                          |                                              |                                | Stop met het uitvoeren van de programma.                                          |
-| OPCODE_JUMP                 | 0x01   | index (0-bound) van de volgende instructie                                                                                                                               |                                              |                                | Laat het programma "springen" naar de instructie met index Parameter0             |
-| OPCODE_STORE_SHUTDOWN_INDEX | 0x02   | Index waar het programma naar toe moet om af te sluiten (0-bound)                                                                                                        |                                              |                                | Laat het programma "spingen" naar deze positie als de pauze trigger gedaan wordt. |
-| OPCODE_PIN_TOGGLE           | 0x10   | GPIOx – Where x can be (A..K) to select the GPIO peripheral for STM32F429X device or x can be (A..I) to select the GPIO peripheral for STM32F40XX and STM32F427X devices | GPIO_Pin – Specifies the pins to be toggled. |                                | Zet een pin op hoog als deze laag is; Zet een pin op laag als deze hoog is.       |
-| OPCODE_PIN_STATE            | 0x11   | GPIOx – Where x can be (A..K) to select the GPIO peripheral for STM32F429X device or x can be (A..I) to select the GPIO peripheral for STM32F40XX and STM32F427X devices | GPIO_Pin – Specifies the pins to be toggled  | GPIO_PIN_SET of GPIO_PIN_RESET | Zet de status van een pin                                                         |
-| OPCODE_DELAY                | 0x20   | De gewenste delay in MS                                                                                                                                                  |                                              |                                | Laat het programma wachten voor x ms                                              |
-| OPCODE_LOG_PROGRAM_STATE    | 0x21   | n/a                                                                                                                                                                      |                                              |                                | Stuur de huidige status van het programma (alle registers) naar de log            |
+Voor het compileren van het programma kan ge bruik gemaakt worden van de De [Ge Wit't Oit Noit Nie Programma Compiler](https://github.com/Ge-Wit-t-Oit-Noit-Nie/gpc) (GPC). 
+
+Het laden van het programma kan op 2 manieren:
+
+1. Compileer het programma mee in de firmware
+2. Laad het programma via een SD Card
+
+### Compileer het programma mee in de firmware
+
+Om het programma te laden via de firmware dien je het programma eerst te compileren. Hier staat beschreven hoe je kan compileren. 
+
+Start een [python](#python-starten) sessie en type het volgende
+
+```ps1
+    python src/gpc.py -i <input_file> -o <output_file> -v
+```
+
+Met de volgende parameters:
+
+* -i, --input: de broncode die gecompileerd moet worden
+* -o, --output: het .bin bestand dat gemaakt wordt
+* -v, --verbose: Volg de uitput
+
+
+!!! info "Voorbeeld"
+    Voer de onderstaande code uit in de folder waar je de [GPC](https://github.com/Ge-Wit-t-Oit-Noit-Nie/gpc) repository gedownload hebt. 
+    ```ps1
+      python src/gpc.py -i .\examples\simpel_programma_2.gpc -o .\binary_file.bin -v
+    ```
+
+Vervolgens moet het bestand ```binary_file.bin``` gecopieerd worden naar de root folder van het project wat de firmware bevat. Dan wordt deze automatisch meegenomen tijdes het compilen en uploaden van de firmware. 
+
+### Laad het programma via een SD Card
+
+Om het programma te laden via een SD Card dien je het programma eerst te compileren. Hier staat beschreven hoe je kan compileren. 
+
+Start een [python](#python-starten) sessie en type het volgende
+
+```ps1
+    python src/gpc.py -i <input_file> -o <output_file> -v
+```
+
+Met de volgende parameters:
+
+* -i, --input: de broncode die gecompileerd moet worden
+* -o, --output: het .bin bestand dat gemaakt wordt
+* -v, --verbose: Volg de uitput
+
+
+!!! info "Voorbeeld"
+    Voer de onderstaande code uit in de folder waar je de [GPC](https://github.com/Ge-Wit-t-Oit-Noit-Nie/gpc) repository gedownload hebt. 
+    ```ps1
+      python src/gpc.py -i .\examples\simpel_programma_2.gpc -o .\binary_file.bin -v
+    ```
+
+Vervolgens copieer het bestand naar de root van een SD Card. Deze kan je dan in de kaartlezer stoppen. Haal de stroom van de piggy bag en zet er opnieuw stroom op. Het programma wordt nu automatisch in het geheugen geladen. De SD Card kan nu verwijderd worden.
+
+## Instructieset
+
+De volgende instructies zijn beschikbaar:
+
+- [STOPPEN](#stoppen)
+- [BEGIN\_EINDE\_PROGRAMMA\_INDEX](#begin_einde_programma_index)
+- [Wachten](#wachten)
+- [ZET\_PORT\_AAN](#zet_port_aan)
+- [ZET\_PORT\_UIT](#zet_port_uit)
+- [FLIP\_POORT](#flip_poort)
+- [BEWAAR\_STATUS](#bewaar_status)
+- [SPRING](#spring)
+
+### STOPPEN
+
+De functie STOPPEN wordt als volgt gecodeerd:
+
+| Element | Bitmask               | Hex    | Parameter |
+| ------- | --------------------- | ------ | --------- |
+| OPCODE  | 0b0000 0000 0000 0000 | 0x0000 |           |
+
+Deze functie is by default ingevult in het geheugen.
+
+### BEGIN_EINDE_PROGRAMMA_INDEX
+
+De functie BEGIN_EINDE_PROGRAMMA_INDEX wordt als volgt gecodeerd:
+
+| Element | Bitmask               | Hex    | Parameter |
+| ------- | --------------------- | ------ | --------- |
+| OPCODE  | 0b0001 0000 0000 0000 | 0x1000 |           |
+| DELAY   | 0b0000 1111 1111 1111 | 0x0FFF | INDEX     |
+
+De maximale index is dus 4095
+
+### Wachten
+
+De functie WACHTEN wordt als volgt gecodeerd:
+
+| Element | Bitmask               | Hex    | Parameter |
+| ------- | --------------------- | ------ | --------- |
+| OPCODE  | 0b0010 0000 0000 0000 | 0x2000 |           |
+| DELAY   | 0b0000 1111 1111 1111 | 0x0FFF | DELAY     |
+
+De maximale delay is dus 4095 ms
+
+### ZET_PORT_AAN
+
+De functie ZET_PORT_AAN wordt als volgt gecodeerd:
+
+| Element | Bitmask               | Hex    | Parameter         |
+| ------- | --------------------- | ------ | ----------------- |
+| OPCODE  | 0b0011 0000 0000 0000 | 0x3000 |                   |
+| HSIO    | 0b0000 0010 0000 0000 | 0x0200 | HSIO (0x0 / 0x01) |
+| HIGH    | 0b0000 0001 0000 0000 | 0x0100 |                   |
+| PORT    | 0b0000 0000 0001 1111 | 0x001F | PORTNR            |
+
+De PORT is een van de 13 (0-12) gewone IO Poorten of 0-8 HSIO poorten.
+
+### ZET_PORT_UIT
+
+De functie ZET_PORT_AAN wordt als volgt gecodeerd:
+
+| Element | Bitmask               | Hex    | Parameter         |
+| ------- | --------------------- | ------ | ----------------- |
+| OPCODE  | 0b0100 0000 0000 0000 | 0x4000 |                   |
+| HSIO    | 0b0000 0010 0000 0000 | 0x0200 | HSIO (0x0 / 0x01) |
+| HIGH    | 0b0000 0001 0000 0000 | 0x0100 |                   |
+| PORT    | 0b0000 0000 0001 1111 | 0x001F | PORTNR            |
+
+De PORT is een van de 13 (0-12) gewone IO Poorten of 0-8 HSIO poorten.
+
+### FLIP_POORT
+
+De functie FLIP_POORT wordt als volgt gecodeerd:
+
+| Element | Bitmask               | Hex    | Parameter         |
+| ------- | --------------------- | ------ | ----------------- |
+| OPCODE  | 0b0101 0000 0000 0000 | 0x5000 |                   |
+| HSIO    | 0b0000 0010 0000 0000 | 0x0200 | HSIO (0x0 / 0x01) |
+| PORT    | 0b0000 0000 0001 1111 | 0x001F | PORTNR            |
+
+De PORT is een van de 13 (0-12) gewone IO Poorten of 0-8 HSIO poorten.
+
+### BEWAAR_STATUS
+
+De functie BEWAAR_STATUS wordt als volgt gecodeerd:
+
+| Element | Bitmask               | Hex    | Parameter         |
+| ------- | --------------------- | ------ | ----------------- |
+| OPCODE  | 0b0110 0000 0000 0000 | 0x6000 |                   |
+
+### SPRING
+
+De functie BEWAAR_STATUS wordt als volgt gecodeerd:
+
+| Element | Bitmask               | Hex    | Parameter         |
+| ------- | --------------------- | ------ | ----------------- |
+| OPCODE  | 0b0110 0000 0000 0000 |        |                   |
+| INDEX   | 0b0000 1111 1111 1111 | x0FFF  | Spring direct naar index                  |
 
 ## Geheugen
 
@@ -48,18 +209,21 @@ MEMORY
     FLASH (rx)     : ORIGIN = 0x08000000, LENGTH = 1024K - 128k
     RESERVED (rw)  : ORIGIN = 0x080E0000, LENGTH = 128k
 }
-  .program_data_block :
-  {
-    . = ALIGN(4);
-    FILL(0x00)
-    *(.program_data_block)
-    . = ALIGN(4);
-  } > RESERVED 
+.program_data_block :
+{
+  _program_data_start = .;
+  FILL(0x00); /* Fill the section with 0xFF */
+  binary_file.o(.program_data_block)
+  KEEP(*(.program_data_block))
+  _program_data_end = .;
+} > RESERVED 
 ```
 
 ### Geheugen vulling
 
 Bij het reserveren van de sector (zie vorige paragraaf) wordt het geheugen gevult met 0x00. Doordat de HALT instructie de waarde 0x00 heeft, zal effectief het hele geheugen dus vol staan met HALT (totdat er een programma geladen wordt).
+
+Bij het compileren wordt het binare bestand ```binary_file.o``` meegeladen in het geheugen. 
 
 ### Data gebruik
 
@@ -78,28 +242,4 @@ Voorbeeld van een output. In deze output is te zien dat *5.49%* gebruikt is.
 [build]              RAM:       25872 B       256 KB      9.87%
 [build]            FLASH:       55824 B    1044496 B      5.34%
 [build]         RESERVED:         224 B       4080 B      5.49%
-```
-
-## Voorbeeld programma
-
-### Simple programma om de blauwe led te knipperen
-
-Declareer de blauwe led met ```BLUE_LED_Pin``` en zorg dat deze op ```BLUE_LED_GPIO_Port``` gemount zit.
-
-```c
-#ifndef __PROGRAMMA_H__
-#define __PROGRAMMA_H__
-
-#include <program_controller.h>
-#include <main.h>
-
-volatile MEM_PROGRAM_DATA_BLOCK instruction_t instruction[] = {
-    {.opcode = OPCODE_PIN_STATE, .parameter0 = (void *)BLUE_LED_Pin, .parameter1 = (void *)BLUE_LED_GPIO_Port, .parameter2 = (void *)GPIO_PIN_SET},
-    {.opcode = OPCODE_DELAY, .parameter0 = (void *)1500},
-    {.opcode = OPCODE_PIN_TOGGLE, .parameter0 = (void *)BLUE_LED_Pin, .parameter1 = (void *)BLUE_LED_GPIO_Port},
-    {.opcode = OPCODE_JUMP, .parameter0 = (void *)1},
-    {.opcode = OPCODE_HALT},
-};
-
-#endif // __PROGRAMMA_H__
 ```
