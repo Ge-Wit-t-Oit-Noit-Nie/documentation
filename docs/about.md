@@ -12,18 +12,4 @@ Ook binnen de Brabantsedag wordt het belangrijker dat er automatisering komt. Om
 
 Alle code en documentatie word uitgegeven onder de **MIT License**. Iedere repository moet een **[LICENSE](https://github.com/Ge-Wit-t-Oit-Noit-Nie/documentation/blob/main/LICENSE)** bestand hebben waarin dit beschreven staat.
 
-
 ## Contributors
-
-<table>
-<tr>
-    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
-        <a href=https://github.com/mrBussy>
-            <img src=https://avatars.githubusercontent.com/u/1843912?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Rudi Middel/>
-            <br />
-            <sub style="font-size:14px"><b>Rudi Middel</b></sub>
-        </a>
-    </td>
-</tr>
-</table>
-
