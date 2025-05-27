@@ -18,3 +18,4 @@ jobs:
         PATH: '/docs/about.md'
         COMMIT_MESSAGE: 'docs(about): update contributors'
         AVATAR_SHAPE: 'round'
+        BRANCH: 'feature/2-Add-contributors-generator'
