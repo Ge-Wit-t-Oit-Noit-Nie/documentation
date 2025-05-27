@@ -11,3 +11,5 @@ Ook binnen de Brabantsedag wordt het belangrijker dat er automatisering komt. Om
 ## Over het gebruik van de repositories
 
 Alle code en documentatie word uitgegeven onder de **MIT License**. Iedere repository moet een **[LICENSE](https://github.com/Ge-Wit-t-Oit-Noit-Nie/documentation/blob/main/LICENSE)** bestand hebben waarin dit beschreven staat.
+
+## Contributors
