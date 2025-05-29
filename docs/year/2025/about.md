@@ -17,7 +17,7 @@ Beschrijf hier de programma die uitgevoerd moet worden in simpele stappen.
 
 Voeg eventueel een tekening toe met uml:
 
-```puml
+```plantuml
 @startuml
 
 start
