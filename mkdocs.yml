@@ -24,8 +24,3 @@ markdown_extensions:
 
 theme:
   name: material
-
-plugins:
-    - plantuml:
-        puml_url: https://www.plantuml.com/plantuml/
-        num_workers: 8
