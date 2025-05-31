@@ -76,6 +76,18 @@ Met de volgende parameters:
 * -o, --output: het .bin bestand dat gemaakt wordt
 * -v, --verbose: Volg de uitput
 
+### Binair bestand
+
+De output van de compiler is een binair bestand. Deze kan met speciale progarmma's
+gelezen worden. [VSCode](https://code.visualstudio.com/) met een
+[HEX Editor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)
+plugin kan dit bestand gelezen worden.
+
+!!! note "Note"
+    Het bestand wordt geschreven in een *big-endian* setup. Dit houdt in dat per
+    byte de eerste 4 bits als laatste geschreven worden. Bijvoorbeeld ```WACHTEN(INDEX=1500);```
+    wordt vertaald naar ```0x25DC```. Het wordt vervolgens geschreven als ```DC 25```.
+
 ## Toevoegen aan de firmware
 
 Voor het gebruik van het programma in de firmware:
