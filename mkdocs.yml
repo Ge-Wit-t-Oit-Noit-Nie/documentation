@@ -7,6 +7,9 @@ nav:
       - 2025:
           - Over: year/2025/about.md
           - Programma specificaties: year/2025/program_specifications.md
+  - Compiler:
+      - Algemeen: gpc/index.md
+      - Programma specificaties: gpc/program_specifications.md
   - GWTONN Bibliotheek:
       - Algemeen: gwtonn_library/index.md
       - Logger: gwtonn_library/logger.md
