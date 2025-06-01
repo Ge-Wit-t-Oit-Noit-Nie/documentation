@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../../gwtonn_library/programma/">
       
       
-        <link rel="next" href="../git/">
+        <link rel="next" href="../piggyback/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Coding conventies - Ge Wit 't Oit Noit Nie documentatie</title>
+        <title>Busarchitectuur - Ge Wit 't Oit Noit Nie documentatie</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#coding-conventions" class="md-skip">
+        <a href="#bus-architectuur" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Coding conventies
+              Busarchitectuur
             
           </span>
         </div>
@@ -577,18 +577,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -604,7 +606,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Hardware
@@ -615,10 +617,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../gwtonn_hardware/bus/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Busarchitectuur
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -629,6 +653,83 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fysieke-laag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fysieke laag
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aansluitingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aansluitingen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aansluitingen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#can" class="md-nav__link">
+    <span class="md-ellipsis">
+      CAN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spanning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spanning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Spanning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#noodstop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Noodstop
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -641,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../gwtonn_hardware/piggyback/" class="md-nav__link">
+      <a href="../piggyback/" class="md-nav__link">
         
   
   
@@ -668,20 +769,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -697,7 +796,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Ontwikkeling
@@ -711,7 +810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../development/" class="md-nav__link">
         
   
   
@@ -731,32 +830,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Coding conventies
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../development/coding_conventions/" class="md-nav__link">
         
   
   
@@ -767,128 +844,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#taal" class="md-nav__link">
-    <span class="md-ellipsis">
-      Taal
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#leesbaarheid" class="md-nav__link">
-    <span class="md-ellipsis">
-      Leesbaarheid
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bestandsnamen" class="md-nav__link">
-    <span class="md-ellipsis">
-      Bestandsnamen
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Bestandsnamen">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lower_case" class="md-nav__link">
-    <span class="md-ellipsis">
-      lower_case
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#underscore" class="md-nav__link">
-    <span class="md-ellipsis">
-      Underscore
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#declaraties" class="md-nav__link">
-    <span class="md-ellipsis">
-      Declaraties
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Declaraties">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      structure
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#typdef-defenities" class="md-nav__link">
-    <span class="md-ellipsis">
-      typdef defenities
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enumeraties" class="md-nav__link">
-    <span class="md-ellipsis">
-      Enumeraties
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#markdown" class="md-nav__link">
-    <span class="md-ellipsis">
-      Markdown
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -901,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../git/" class="md-nav__link">
+      <a href="../../development/git/" class="md-nav__link">
         
   
   
@@ -924,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hardware/" class="md-nav__link">
+      <a href="../../development/hardware/" class="md-nav__link">
         
   
   
@@ -974,46 +929,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#taal" class="md-nav__link">
+  <a href="#fysieke-laag" class="md-nav__link">
     <span class="md-ellipsis">
-      Taal
+      Fysieke laag
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#leesbaarheid" class="md-nav__link">
+  <a href="#aansluitingen" class="md-nav__link">
     <span class="md-ellipsis">
-      Leesbaarheid
+      Aansluitingen
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bestandsnamen" class="md-nav__link">
-    <span class="md-ellipsis">
-      Bestandsnamen
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Bestandsnamen">
+    <nav class="md-nav" aria-label="Aansluitingen">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lower_case" class="md-nav__link">
+  <a href="#can" class="md-nav__link">
     <span class="md-ellipsis">
-      lower_case
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#underscore" class="md-nav__link">
-    <span class="md-ellipsis">
-      Underscore
+      CAN
     </span>
   </a>
   
@@ -1025,37 +962,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#declaraties" class="md-nav__link">
+  <a href="#spanning" class="md-nav__link">
     <span class="md-ellipsis">
-      Declaraties
+      Spanning
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Declaraties">
+    <nav class="md-nav" aria-label="Spanning">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
+  <a href="#noodstop" class="md-nav__link">
     <span class="md-ellipsis">
-      structure
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#typdef-defenities" class="md-nav__link">
-    <span class="md-ellipsis">
-      typdef defenities
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enumeraties" class="md-nav__link">
-    <span class="md-ellipsis">
-      Enumeraties
+      Noodstop
     </span>
   </a>
   
@@ -1063,15 +982,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#markdown" class="md-nav__link">
-    <span class="md-ellipsis">
-      Markdown
-    </span>
-  </a>
   
 </li>
       
@@ -1091,90 +1001,77 @@
 
 
 
-<h1 id="coding-conventions">Coding conventions</h1>
-<h2 id="taal">Taal</h2>
-<p>De volgende taal is geadviseerd:</p>
+<h1 id="bus-architectuur">Bus architectuur</h1>
+<p>Er is voor een bus architectuur gekozen waarbij alle benodigde draden in een kabel gecombineerd zijn. Een bus architectuur gebruikt minimale bekabeling waarbij alle apparaten in een lijn aan elkaar zitten met een kop aan de ene kant en een staart aan de andere kant, zoals te zien is op de afbeelding hieronder. Hiervoor is gekozen zodat er zo min mogelijk losse kabels door de wagen gaan.</p>
+<p><img alt="afbeelding van een bus architectuur. Een lijn met aan de ene kant een kop en aan de andere kant een staart. Tussen de kop en de staart zijn apparaten aan de bus verbonden." src="../afbeeldingen/bus_architectuur.png" /></p>
+<p>Deze bus architectuur is galvanisch geisoleerd tot alle individuele modules tot 2 kV, waardoor een module die aan de bus hangt catastrofaal kan falen zonder de rest van het netwerk mee te nemen.</p>
+<h2 id="fysieke-laag">Fysieke laag</h2>
+<p>De fysieke aansluiting van de bus is een CAT-5 kabel. Over deze kabel gaan de volgende signalen:</p>
+<ul>
+<li>CAN</li>
+<li>Spanning</li>
+<li>Noodstop</li>
+</ul>
+<p>De draad functies worden hieronder gegeven.</p>
 <table>
 <thead>
 <tr>
-<th>Onderdeel</th>
-<th>Taal</th>
-<th>Reden</th>
+<th><strong>draadnummer</strong></th>
+<th><strong>kleur</strong></th>
+<th><strong>functie</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Source Code (+commentaar)</td>
-<td>Engels (UK)</td>
-<td>Dit is de defacto standaard. STM32 code is in Engels, voorbeelden zijn in Engels en documentation op Internet ook</td>
+<td>1</td>
+<td>wit/groen</td>
+<td>CAN positief</td>
 </tr>
 <tr>
-<td>Documentatie (buiten source code)</td>
-<td>Nederlands</td>
-<td>Ge Wit't Oit Noit Nie is een Nederlandse lokale vereniging. Standaard taal is Nederlands. De documentatie sluit daar beter op aan</td>
+<td>2</td>
+<td>groen</td>
+<td>CAN negatief</td>
+</tr>
+<tr>
+<td>3</td>
+<td>wit/oranje</td>
+<td>Noodstop positief</td>
+</tr>
+<tr>
+<td>4</td>
+<td>blauw</td>
+<td>Spanning</td>
+</tr>
+<tr>
+<td>5</td>
+<td>wit/blauw</td>
+<td>Spanning</td>
+</tr>
+<tr>
+<td>6</td>
+<td>oranje</td>
+<td>Noodstop negatief</td>
+</tr>
+<tr>
+<td>7</td>
+<td>wit/bruin</td>
+<td>Aarde</td>
+</tr>
+<tr>
+<td>8</td>
+<td>bruin</td>
+<td>Aarde</td>
 </tr>
 </tbody>
 </table>
-<h2 id="leesbaarheid">Leesbaarheid</h2>
-<p>De code dient leesbaar geshreven te worden. Dit houdt in dat er zoveel mogelijk woorden uitgeschreven worden en geen afkortingen gebruikt worden.</p>
-<p>Voorbeelden:</p>
-<ul>
-<li><strong>get_time</strong>: Correct</li>
-<li><strong>gt_tm</strong>: Niet correct</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Wanneer een prefix gedaan wordt binnen een header om de functies uniek te maken, dan is dit toegestaan: <code>is_get_time</code> voor een functie binnen de <code>internal_sensor</code> header file.</p>
-</div>
-<h2 id="bestandsnamen">Bestandsnamen</h2>
-<h3 id="lower_case">lower_case</h3>
-<p>Wanneer je eigen bestanden toevoegd (zoals in de <code>docs/</code> folder), dan wordt dit altijd in <em>lower_case</em> gedaan.</p>
-<div class="admonition warning">
-<p class="admonition-title">Waarschuwing</p>
-<p>Als uitzondering zijn "CONTRIBUTING.md", "README.md" en "LICENSE". Deze volgen een algemene conventie.
-Bestanden die gemaakt zijn STM32CubeMX zijn ook uitgezonderd.</p>
-</div>
-<h3 id="underscore">Underscore</h3>
-<p>Wanneer een bestandsnaam uit meerdere woorden bestaad (zoals in dit bestand), dan wordt er altijd gebruik gemaakt van een <em>underscore</em>.</p>
-<h2 id="declaraties">Declaraties</h2>
-<h3 id="structure">structure</h3>
-<p>Wanneer een structure aangemaakt wordt, dan wordt deze in lowercase geschreven. Geen toevoegingen, maar wel <code>_</code> om woorden te scheiden.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">program_controller_registers</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">instruction_pointer</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">shutdown_instruction_pointer</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></div>
-<h3 id="typdef-defenities">typdef defenities</h3>
-<p>Een typedef wordt geschreven in lowercase. Tevens wordt de toevoeging <code>_t</code> gedaan om te benadrukken dat het een typedef is.</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">instruction_pointer</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">shutdown_instruction_pointer</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">program_controller_registers_t</span><span class="p">;</span>
-</code></pre></div>
-<h3 id="enumeraties">Enumeraties</h3>
-<p>Enumeraties worden in hoofdletters geschreven. Wanneer een typedef gemaakt wordt van een enumeratie dan wordt deze (in tegenstellign tot <a href="#typdef-defenities">typedef</a>) met hoofdtellers geschreven en zonder <code>_t</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="c1">// Control flow</span>
-<span class="w">    </span><span class="n">OPCODE_HALT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00</span><span class="p">,</span>
-<span class="w">    </span><span class="n">OPCODE_JUMP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x01</span><span class="p">,</span>
-<span class="w">    </span><span class="n">OPCODE_STORE_SHUTDOWN_INDEX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x02</span><span class="p">,</span>
-
-<span class="w">    </span><span class="c1">// Specific</span>
-<span class="w">    </span><span class="n">OPCODE_PIN_TOGGLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">,</span>
-<span class="w">    </span><span class="n">OPCODE_PIN_STATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">,</span>
-
-<span class="w">    </span><span class="c1">// Program related</span>
-<span class="w">    </span><span class="n">OPCODE_DELAY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x20</span><span class="p">,</span>
-<span class="w">    </span><span class="n">OPCODE_LOG_PROGRAM_STATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x21</span><span class="p">,</span>
-
-<span class="p">}</span><span class="w"> </span><span class="n">OPCODE</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="markdown">Markdown</h2>
-<p>Voor de documentatie word gebruik gemaakt van Markdown. Meer specifiek de GitHub variant: <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">GitHub specificatie</a></p>
-<p>Voor de callouts (WARNING, INFO, ...) wordt gebruik gemaakt van de <a href="https://jimandreas.github.io/mkdocs-material/reference/admonitions/">admonitations</a> plugin. Deze heeft een speciale manier voor het maken van de waarschuwing, informatie of voorbeeld boxen. Zie de link voor meer informatie.</p>
+<h2 id="aansluitingen">Aansluitingen</h2>
+<p><img alt="ploatje" src="../afbeeldingen/detailed_bus.png" /></p>
+<h3 id="can">CAN</h3>
+<p>CAN is een automotive communicatie standaard die bekend staat om zijn robuustheid. Het heeft een positieve en negatieve draad nodig die het liefst een twisted pair vormen.</p>
+<h2 id="spanning">Spanning</h2>
+<p>De CAN bus is een bepaald hardware protocol en heeft dus een driver chip nodig. De CAN bus is galvanisch geisoleerd van de modules en heeft dus aparte spanning nodig. Deze spanning is volgens Power-over-Ethernet standaard gestuurd.</p>
+<h3 id="noodstop">Noodstop</h3>
+<p>De noodstop is geimplementeerd met twee kabels, spanning en aarde. Op de kop van de bus wordt een spanning gecreëerd, die de hele bus op en neer gaat, om vervolgens in de kop zelf een relais aanstuurt. Alle noodstoppen staan in serie met elkaar en dus als er een wordt ingedrukt, opent de stroomkring zich. Hierdoor opent de relais die de modules </p>
 
 
 
