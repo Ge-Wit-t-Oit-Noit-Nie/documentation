@@ -21,7 +21,7 @@ Op de basismodule zijn vijf LEDs beschikbaar die ieder een andere functie hebben
 | ERROR    | <span style="color:red">Rood</span>  | Geeft aan als iets fout gaat op de basismodule       |
 
 ## Ingangen en Uitgangen
-De basismodule beschikt over twee RJ45/ethernet connectoren om te communiceren met de hoofdmodule en andere basismodules. Daarnaast beschikt dit bord over een normale uitgangsbus (Regular I/O) en een over hoge snelheidsbus (High Speed I/O). Deze uitgangen zijn onder een hoek van 90 graden van elkaar neergezet om te voorkomen dat deze verkeerd om in het draagbord gestoken kan worden.
+De basismodule beschikt over twee RJ45/ethernet connectoren om te communiceren met de hoofdmodule en andere basismodules. Daarnaast beschikt dit bord over een normale uitgangsbus (Regular I/O / RIO) en een over hoge snelheidsbus (High Speed I/O / HSIO). Deze uitgangen zijn onder een hoek van 90 graden van elkaar neergezet om te voorkomen dat deze verkeerd om in het draagbord gestoken kan worden. De pin nummeringen zijn weergegeven op de printplaat.
 
 Daarnaast beschikt de basismodule over de "KILLSWITCH" pinnen. Deze zorgen ervoor dat alle stroom direct van de borden af wordt gegooid als de noodstop ingeduwd wordt.
 
@@ -52,5 +52,48 @@ Als uitleesbus is er in het geval van fouten een UART bus toegevoegd, deze is so
 4. GND
 
 Hier zijn de 3V3 en GND de 3.3 V voedings pinnen.
+
+### Hoge snelheidsbus
+De pinnen van de microcontroller die gekoppeld zijn aan de hoge snelheidsbus zijn als volgt:
+
+| HSIO Pin | Microcontroller pin |
+|----------|---------------------|
+| 0        | PC0                 |
+| 1        | PC1                 |
+| 2        | PC2                 |
+| 3        | PC3                 |
+| 4        | PC4                 |
+| 5        | PC6                 |
+| 6        | PC7                 |
+| 7        | PC8                 |
+| 8        | PC9                 |
+| 9        | PC10                |
+| 10       | PC11                |
+| 11       | PC12                |
+| 12       | PC13                |
+
+### Normale snelheidsbus
+De pinnen van de microcontroller die gekoppeld zijn aan de normale snelheidsbus zijn als volgt:
+
+| RIO Pin | Microcontroller pin |
+|---------|---------------------|
+| 0       | PA0                 |
+| 1       | PA1                 |
+| 2       | PA2                 |
+| 3       | PA3                 |
+| 4       | PA8                 |
+| 5       | PA11                |
+| 6       | PA12                |
+| 7       | PA15                |
+| 8       | PB2                 |
+| 9       | PB4                 |
+| 10      | PB5                 |
+| 11      | PB6                 |
+| 12      | PB8                 |
+| 13      | PB9                 |
+| 14      | PB12                |
+| 15      | PB13                |
+| 16      | PB15                |
+
 ## Communicatie
 De hoofdcommunicatie tussen borden die over heel de wagen verspreid zijn word is een CAN bus. Dit is een robuuste comunicatiebus die onder andere gebruikt word in auto's. Deze bus is elektrisch geisoleerd van de rest van de basismodule. Dit is gedaan omdat in het geval er een andere basismodule catastrofaal beschadigd niet alle bordjes beschadigen. Meer informatie over het gebruik van de bus is te vinden onder het kopje [Busarchitectuur](bus.md).

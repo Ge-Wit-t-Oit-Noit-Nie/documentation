@@ -15,7 +15,6 @@ nav:
       - Logger: gwtonn_library/logger.md
       - Programma specificaties: gwtonn_library/programma.md
   - Hardware: 
-      - Algemeen: gwtonn_hardware/index.md
       - Busarchitectuur: gwtonn_hardware/bus.md
       - Basismodule Handleiding: gwtonn_hardware/piggyback.md
   - Ontwikkeling:
