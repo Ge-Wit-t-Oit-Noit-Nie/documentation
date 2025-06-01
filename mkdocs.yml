@@ -14,10 +14,14 @@ nav:
       - Algemeen: gwtonn_library/index.md
       - Logger: gwtonn_library/logger.md
       - Programma specificaties: gwtonn_library/programma.md
+  - Hardware: 
+      - Busarchitectuur: gwtonn_hardware/bus.md
+      - Basismodule Handleiding: gwtonn_hardware/piggyback.md
   - Ontwikkeling:
       - Algemeen: development/index.md
       - Coding conventies: development/coding_conventions.md
       - Git: development/git.md
+      - Hardware: development/hardware.md
       
 markdown_extensions:
   - admonition
