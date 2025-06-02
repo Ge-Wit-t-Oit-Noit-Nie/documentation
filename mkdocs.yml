@@ -32,5 +32,9 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
 
+plugins:
+  - plantuml:
+      puml_url: https://www.plantuml.com/plantuml/
+      
 theme:
   name: material

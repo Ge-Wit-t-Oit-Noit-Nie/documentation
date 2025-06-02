@@ -35,3 +35,59 @@ de SD Card staan. Volg de volgende stappen:
    1. Zorg er voor dat het programma ```binary_file.bin``` heet
    2. de SD Card moet FAT32 geformateerd zijn
 4. Herstart de STM32 piggybord.
+
+## Werking van de controller
+
+De controller kan gezien worden als een virtuele omgeving. We simuleren een hardware die verschillende instructies (OPCODES) kan uitvoeren.
+Deze instructies staan in het geheugen en worden stuk voor stuk uitgevoerd. 
+
+```puml
+@startuml
+autoactivate on
+
+participant FreeRTOS as RTOS
+participant "program_controller" as PC
+
+== Initialization ==
+RTOS -> PC : program_controller_task()
+PC -> "internal_sensors" : is_set_time
+return VM_OK
+
+== Main loop ==
+
+loop
+    PC -> PC : fetch_instruction_from_memory
+    alt opcode STOPPEN
+        PC -> PC: vm_exit
+        return terminate_thread
+        autoactivate off
+        PC -> RTOS : terminate_thread
+        autoactivate on
+    else opcode BEGIN_EINDE_PROGRAMMA_INDEX
+        PC -> PC: vm_store_shutdown_index
+        return VM_OK
+    else opcode WACHTEN
+        PC -> PC: vm_delay
+        return VM_OK
+    else opcode ZET_POORT_AAN
+        PC -> PC: vm_pin_on
+        return VM_OK
+    else opcode ZET_POORT_UIT
+        PC -> PC: vm_pin_off
+        return VM_OK
+    else opcode FLIP_POORT
+        PC -> PC: vm_pin_toggle
+        return VM_OK
+    else opcode BEWAAR_STATUS
+        PC -> PC: vm_pin_toggle
+        PC -> Logger : osMessageQueuePut(telemetry)
+        return VM_OK
+        return VM_OK
+    else opcode SPRING
+        PC -> PC: vm_pin_toggle
+        return VM_OK
+    end
+end
+
+@enduml
+```
