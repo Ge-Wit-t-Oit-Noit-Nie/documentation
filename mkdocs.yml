@@ -2,27 +2,30 @@ site_name: Ge Wit 't Oit Noit Nie documentatie
 
 nav:
   - Welkom: index.md
-  - Over: about.md
+  - Hardware: 
+    - Busarchitectuur: gwtonn_hardware/bus.md
+    - Basismodule Handleiding: gwtonn_hardware/piggyback.md
+  - Software:
+    - Index: software/index.md
+    - Programma:
+        - Algemeen: software/gpc/index.md
+        - Programma specificaties: software/gpc/program_specifications.md
+    - Firmware:
+        - Algemeen: software/firmware/index.md
+        - Logger: software/firmware/logger.md
+        - Programma controller: software/firmware/programma_controller.md
+        - CAN: software/firmware/can.md
+  - Guidelines/handleiding:
+      - Algemeen: guidelines/index.md
+      - Coding conventies: guidelines/coding_conventions.md
+      - Git: guidelines/git.md
+      - Hardware: guidelines/hardware.md
   - Jaren:
       - 2025:
           - Over: year/2025/about.md
           - Programma specificaties: year/2025/program_specifications.md
-  - Compiler:
-      - Algemeen: gpc/index.md
-      - Programma specificaties: gpc/program_specifications.md
-  - GWTONN Bibliotheek:
-      - Algemeen: gwtonn_library/index.md
-      - Logger: gwtonn_library/logger.md
-      - Programma controller: gwtonn_library/programma_controller.md
-  - Hardware: 
-      - Busarchitectuur: gwtonn_hardware/bus.md
-      - Basismodule Handleiding: gwtonn_hardware/piggyback.md
-  - Ontwikkeling:
-      - Algemeen: development/index.md
-      - Coding conventies: development/coding_conventions.md
-      - Git: development/git.md
-      - Hardware: development/hardware.md
-      
+  - Site structuur: site_structure.md
+
 markdown_extensions:
   - admonition
   - pymdownx.details

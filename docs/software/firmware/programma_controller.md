@@ -1,4 +1,4 @@
-# Programma controller
+# Programma
 
 Het hele idee van de controller is om een progarmma uit te voeren.
 Op deze pagina beschrijven hoe dit werkt.
@@ -12,7 +12,7 @@ Na het programmeren moet het programma gecompileerd worden.
 Na het compileren moet de programma geschreven worden in het geheugen.
 Dat kan op 2 manieren zoals beschreven in de volgende paragrafen.
 
-### Programma laden in de firmware
+## Programma laden in de firmware
 
 De eerste methode is het laden van het programma in de firmware.
 In basis kan hiervoor de volgende stappenplan gevolgt worden:
@@ -23,7 +23,7 @@ In basis kan hiervoor de volgende stappenplan gevolgt worden:
    1. Zorg er voor dat het programma ```binary_file.bin``` heet
 4. Compileer en laad de firmware
 
-### Programma laden via de SD Card
+## Programma laden via de SD Card
 
 Een andere mogelijkheid is het laden van een programma via de SD Card.
 Hiervoor dient een bestand met de name ```binary_file.bin``` in de root van

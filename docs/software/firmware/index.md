@@ -1,4 +1,4 @@
-# Ge Wit't Oit Noit Nie bibliotheek
+# Ge Wit't Oit Noit Nie Firmware
 
 Om het overzichtelijk te houden, is er een losse bibliotheek gemaakt voor Ge Wit't Oit Noit Nie. De bibliotheek is te vinden in `{workspace}/Middlewares/gwtonn`.
 
@@ -31,7 +31,7 @@ Als basis wordt gebruik gemaakt van [FreeRTOS (CMSIS v2 implementation)](https:/
 
 ## Programma controller
 
-Voor het uitvoeren van de programma, is er een programma controller. De details staan beschreven in [programma](programma_controller.md).
+Voor het uitvoeren van de programma, is er een programma controller. De details staan beschreven in [programma controller](programma_controller.md).
 
 ## Logger
 
