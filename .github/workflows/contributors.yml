@@ -1,8 +1,9 @@
-name: Add contributors
+name: Add Contributors
 on:
-  push:
-    branches-ignore:
-      - main
+  workflow_dispatch:  # Allows manual triggering from GitHub UI
+  schedule:
+    - cron: '20 20 * * *'  # Runs daily at 20:20 UTC
+
 jobs:
   add-contributors:
     runs-on: ubuntu-latest
