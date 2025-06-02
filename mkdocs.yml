@@ -13,7 +13,7 @@ nav:
   - GWTONN Bibliotheek:
       - Algemeen: gwtonn_library/index.md
       - Logger: gwtonn_library/logger.md
-      - Programma specificaties: gwtonn_library/programma.md
+      - Programma controller: gwtonn_library/programma_controller.md
   - Hardware: 
       - Busarchitectuur: gwtonn_hardware/bus.md
       - Basismodule Handleiding: gwtonn_hardware/piggyback.md
@@ -29,5 +29,9 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
 
+plugins:
+  - plantuml:
+      puml_url: https://www.plantuml.com/plantuml/
+      
 theme:
   name: material
