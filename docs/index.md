@@ -1,98 +1,40 @@
-# Welkom bij de documentatie van GWTONN
+# Welkom bij Ge Wit ’t Oit Noit Nie
 
-Voor algemene informatie over Ge Wit't Oit Noit Nie kijk op onze [website](https://gewittoitnoitnie.nl/).
+Ge wit ’t oit noit nie is een van de wagenbouwersgroepen die sinds 1995 deelneemt aan de Brabantsedag in Heeze. Vanaf juni start ons bouwseizoen met als doel het bouwen van een prachtige, huizenhoge praalwagen. Deze wagen trekt samen met 15 andere praalwagens op de laatste zondag van augustus door de straten van Heeze. De combinatie van praalwagen, toneelspel en muziek zorgt ervoor dat het publiek vermaakt, geboeid, verblijd en soms ook ontroerd wordt. Kortom, een unieke beleving waar wij als wagenbouwersgroep zijnde graag onderdeel van uitmaken!
 
-## Project layout
+## Waarom deze repositories
 
-```bash
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        year/
-            2025/ # All about the year 2025 setup
-        gwtonn_library/ # Specific information about the general GWTONN Library support
+Ook binnen de Brabantsedag wordt het belangrijker dat er automatisering komt. Om hier aan tegemoet te komen, wordt er door een enthousiste groep mensen toegewerkt naar een technisch platform waarin het mogelijk is om te werken met deze automatisering.
 
-```
+## Site structuur
 
-## Prerequisites
+De volgende belangrijke onderdelen zijn beschreven:
 
-De volgende applicaties zijn nodig:
+- [Hardware](./gwtonn_hardware/piggyback.md)
+- [Software](./software/index.md)
+- [Guidelines & handleidingen](./guidelines/index.md)
 
-* [VSCode](https://code.visualstudio.com/): 1.98.2 of hoger
-* [Python](https://www.python.org/)
-* [mkdocs](https://www.mkdocs.org/): >= 1.6.1
+## Over het gebruik van de repositories
 
-Verder worden de volgende extenties aangeraden voor VSCode:
+Alle code en documentatie word uitgegeven onder de **MIT License**. Iedere repository moet een **[LICENSE](https://github.com/Ge-Wit-t-Oit-Noit-Nie/documentation/blob/main/LICENSE)** bestand hebben waarin dit beschreven staat.
 
-### GitHub Suport
+## Contributors
 
-* [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
-
-### Markdown support
-
-* [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
-* [Markdown Table](https://marketplace.visualstudio.com/items?itemName=TakumiI.markdowntable)
-* [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
-
-### YAML Support
-
-* [YAML Language Support by Red Hat](https://marketplace.visualstudio.com/items/?itemName=redhat.vscode-yaml)
-
-## Basis MKDocs gebruik
-
-### Lokaal bekijken
-
-Voor het testen van de site gebruik de volgende commando:
-
-```ps1
-.\venv\Scripts\activate.ps1
-mkdocs serve
-```
-
-### Documentatie deployen
-
-Om de documentatie te deployen, kan je handmatig een deploy starten:
-
-```ps1
-.\venv\Scripts\activate.ps1
-mkdocs gh-deploy
-```
-
-Dit script al dan een statische site maken en beschikbaar maken op de gh-pages branch.
-
-!!! Warning "Waarschuwing"
-    Als er niet-getrackte bestanden of niet-gecommit werk zijn in de lokale repository waar ```mkdocs gh-deploy``` wordt uitgevoerd, zullen deze worden opgenomen in de pagina's die worden gedeployed.
-
-!!! note "Opmerking"
-    Dit is niet noodzakelijk. Tijdens het mergen van een pull request gebeurt het automatisch.
-
-## Prepareren van het systeem
-
-### Installeren van python virtual environment
-
-Voor het gebruik van mkdocs kan het best gebruik gemaakt worden van een virtuele python omgeving. Deze kan je als volgt maken:
-
-```ps1
-python -m venv venv
-```
-
-Op een windows machine kan je deze activeren met:
-
-```ps1
-.\venv\Scripts\activate.ps1
-```
-
-Op MaOS or Linux kan je deze activeren met:
-
-```bash
-source ./venv/bin/activate
-```
-
-### Installatie mkdocs
-
-Voor het gebruik van ```mkdocs``` kan gebruikt worden van een virtuele python omgeving. Zie voor het opzetten van de omgeving [mkdocs website](https://www.mkdocs.org/getting-started/)
-
-```ps1
-.\venv\Scripts\activate.ps1
-pip install -r requirements.txt
-```
+<table>
+<tr>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/mrBussy>
+            <img src=https://avatars.githubusercontent.com/u/1843912?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Rudi Middel/>
+            <br />
+            <sub style="font-size:14px"><b>Rudi Middel</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/basebom>
+            <img src=https://avatars.githubusercontent.com/u/119297631?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Bas de Groof/>
+            <br />
+            <sub style="font-size:14px"><b>Bas de Groof</b></sub>
+        </a>
+    </td>
+</tr>
+</table>
