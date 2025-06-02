@@ -19,4 +19,4 @@ jobs:
         COMMIT_MESSAGE: 'docs(about): update contributors'
         AVATAR_SHAPE: 'round'
         PULL_REQUEST: 'true'
-        BRANCH: 'main'
+        BRANCH: 'feature/contributors'
