@@ -43,6 +43,10 @@
       
     
     
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/interaction.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -109,46 +113,6 @@
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
     
     
   </nav>
@@ -552,6 +516,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#freertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      FreeRTOS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#programma-controller" class="md-nav__link">
     <span class="md-ellipsis">
       Programma controller
@@ -561,18 +534,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#logger-freertos-implementation" class="md-nav__link">
+  <a href="#logger" class="md-nav__link">
     <span class="md-ellipsis">
-      Logger - FreeRTOS implementation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#message-mechanisme" class="md-nav__link">
-    <span class="md-ellipsis">
-      Message mechanisme
+      Logger
     </span>
   </a>
   
@@ -1003,6 +967,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#freertos" class="md-nav__link">
+    <span class="md-ellipsis">
+      FreeRTOS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#programma-controller" class="md-nav__link">
     <span class="md-ellipsis">
       Programma controller
@@ -1012,18 +985,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#logger-freertos-implementation" class="md-nav__link">
+  <a href="#logger" class="md-nav__link">
     <span class="md-ellipsis">
-      Logger - FreeRTOS implementation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#message-mechanisme" class="md-nav__link">
-    <span class="md-ellipsis">
-      Message mechanisme
+      Logger
     </span>
   </a>
   
@@ -1056,25 +1020,23 @@
 
 <h1 id="ge-witt-oit-noit-nie-firmware">Ge Wit't Oit Noit Nie Firmware</h1>
 <p>Om het overzichtelijk te houden, is er een losse bibliotheek gemaakt voor Ge Wit't Oit Noit Nie. De bibliotheek is te vinden in <code>{workspace}/Middlewares/gwtonn</code>.</p>
+<div class='puml-container'><div class="puml light" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="DESCRIPTION" height="182px" preserveAspectRatio="xMidYMid meet" style="width:596px;height:182px;background:#FFFFFF;" version="1.1" viewBox="0 0 596 182" width="596px" zoomAndPan="magnify" class="diagram"><defs/><g><g class="entity" data-entity="RTOS" data-source-line="3" data-uid="ent0002" id="entity_RTOS"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="109.2207" x="7" y="7"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="96.2207" y="12"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="94.2207" y="14"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="94.2207" y="18"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69.2207" x="22" y="39.9951">FreeRTOS</text></g><g class="entity" data-entity="PC" data-source-line="4" data-uid="ent0003" id="entity_PC"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="171.6123" x="229.8" y="7"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="381.4123" y="12"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="379.4123" y="14"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="379.4123" y="18"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="131.6123" x="244.8" y="39.9951">program controller</text></g><g class="entity" data-entity="LOGGER" data-source-line="5" data-uid="ent0004" id="entity_LOGGER"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="88.5078" x="143.36" y="130.29"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="211.8678" y="135.29"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="209.8678" y="137.29"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="209.8678" y="141.29"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48.5078" x="158.36" y="163.2851">Logger</text></g><g class="entity" data-entity="FATFS" data-source-line="6" data-uid="ent0005" id="entity_FATFS"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="83.1211" x="399.05" y="130.29"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="462.1711" y="135.29"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="460.1711" y="137.29"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="460.1711" y="141.29"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43.1211" x="414.05" y="163.2851">FATFS</text></g><g class="entity" data-entity="SDCard" data-source-line="7" data-uid="ent0006" id="entity_SDCard"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="97.1143" x="267.05" y="130.29"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="344.1643" y="135.29"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="342.1643" y="137.29"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="342.1643" y="141.29"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57.1143" x="282.05" y="163.2851">SD Card</text></g><g class="entity" data-entity="user_diskio_spi" data-source-line="8" data-uid="ent0007" id="entity_user_diskio_spi"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="61.458" x="516.88" y="130.29"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="558.338" y="135.29"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="556.338" y="137.29"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="556.338" y="141.29"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="21.458" x="531.88" y="163.2851">SPI</text></g><g class="entity" data-entity="IS" data-source-line="9" data-uid="ent0008" id="entity_IS"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="153.9346" x="436.64" y="7"/><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="570.5746" y="12"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="568.5746" y="14"/><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="568.5746" y="18"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113.9346" x="451.64" y="39.9951">Internal Sensors</text></g><g class="link" data-entity-1="RTOS" data-entity-2="PC" data-source-line="11" data-uid="lnk9" id="link_RTOS_PC"><path d="M116.41,30.14 C149.37,30.14 186.05,30.14 223.44,30.14" fill="none" id="RTOS-to-PC" style="stroke:#181818;stroke-width:1;"/><polygon fill="#181818" points="229.44,30.14,220.44,26.14,224.44,30.14,220.44,34.14,229.44,30.14" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="77.3081" x="134.51" y="23.2069">start thread</text></g><g class="link" data-entity-1="RTOS" data-entity-2="LOGGER" data-source-line="12" data-uid="lnk10" id="link_RTOS_LOGGER"><path d="M85.01,53.68 C107.65,75.46 137.4168,104.1295 160.0068,125.8695" fill="none" id="RTOS-to-LOGGER" style="stroke:#181818;stroke-width:1;"/><polygon fill="#181818" points="164.33,130.03,160.6189,120.9071,160.7273,126.5629,155.0715,126.6713,164.33,130.03" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="77.3081" x="133.61" y="96.3569">start thread</text></g><g class="link" data-entity-1="PC" data-entity-2="LOGGER" data-source-line="13" data-uid="lnk11" id="link_PC_LOGGER"><path d="M291.83,53.68 C268.84,75.46 238.5659,104.1637 215.6159,125.9037" fill="none" id="PC-to-LOGGER" style="stroke:#181818;stroke-width:1;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="211.26,130.03,220.5447,126.7446,214.8899,126.5915,215.043,120.9367,211.26,130.03" style="stroke:#181818;stroke-width:1;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="98.8965" x="259.61" y="96.3569">send telemetry</text></g><g class="link" data-entity-1="PC" data-entity-2="IS" data-source-line="15" data-uid="lnk12" id="link_PC_IS"><path d="M401.85,30.14 C413.34,30.14 418.84,30.14 430.34,30.14" fill="none" id="PC-to-IS" style="stroke:#181818;stroke-width:1;"/><polygon fill="#181818" points="436.34,30.14,427.34,26.14,431.34,30.14,427.34,34.14,436.34,30.14" style="stroke:#181818;stroke-width:1;"/></g><g class="link" data-entity-1="LOGGER" data-entity-2="SDCard" data-source-line="17" data-uid="lnk13" id="link_LOGGER_SDCard"><path d="M232.11,153.44 C243.64,153.44 249.16,153.44 260.68,153.44" fill="none" id="LOGGER-to-SDCard" style="stroke:#181818;stroke-width:1;"/><polygon fill="#181818" points="266.68,153.44,257.68,149.44,261.68,153.44,257.68,157.44,266.68,153.44" style="stroke:#181818;stroke-width:1;"/></g><g class="link" data-entity-1="SDCard" data-entity-2="FATFS" data-source-line="18" data-uid="lnk14" id="link_SDCard_FATFS"><path d="M364.44,153.44 C375.84,153.44 381.25,153.44 392.66,153.44" fill="none" id="SDCard-to-FATFS" style="stroke:#181818;stroke-width:1;"/><polygon fill="#181818" points="398.66,153.44,389.66,149.44,393.66,153.44,389.66,157.44,398.66,153.44" style="stroke:#181818;stroke-width:1;"/></g><g class="link" data-entity-1="FATFS" data-entity-2="user_diskio_spi" data-source-line="19" data-uid="lnk15" id="link_FATFS_user_diskio_spi"><path d="M482.41,153.44 C493.78,153.44 499.16,153.44 510.54,153.44" fill="none" id="FATFS-to-user_diskio_spi" style="stroke:#181818;stroke-width:1;"/><polygon fill="#181818" points="516.54,153.44,507.54,149.44,511.54,153.44,507.54,157.44,516.54,153.44" style="stroke:#181818;stroke-width:1;"/></g></g></svg></div><div class="puml dark" style=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="DESCRIPTION" height="182px" preserveAspectRatio="xMidYMid meet" style="width:596px;height:182px;background:#1B1B1B;" version="1.1" viewBox="0 0 596 182" width="596px" zoomAndPan="magnify" class="diagram"><defs/><g><rect fill="#1B1B1B" height="182" style="stroke:none;stroke-width:1;" width="596" x="0" y="0"/><g class="entity" data-entity="RTOS" data-source-line="3" data-uid="ent0002" id="entity_RTOS"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="109.2207" x="7" y="7"/><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="96.2207" y="12"/><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="94.2207" y="14"/><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="94.2207" y="18"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69.2207" x="22" y="39.9951">FreeRTOS</text></g><g class="entity" data-entity="PC" data-source-line="4" data-uid="ent0003" id="entity_PC"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="171.6123" x="229.8" y="7"/><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="381.4123" y="12"/><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="379.4123" y="14"/><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="379.4123" y="18"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="131.6123" x="244.8" y="39.9951">program controller</text></g><g class="entity" data-entity="LOGGER" data-source-line="5" data-uid="ent0004" id="entity_LOGGER"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="88.5078" x="143.36" y="130.29"/><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="211.8678" y="135.29"/><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="209.8678" y="137.29"/><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="209.8678" y="141.29"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48.5078" x="158.36" y="163.2851">Logger</text></g><g class="entity" data-entity="FATFS" data-source-line="6" data-uid="ent0005" id="entity_FATFS"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="83.1211" x="399.05" y="130.29"/><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="462.1711" y="135.29"/><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="460.1711" y="137.29"/><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="460.1711" y="141.29"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="43.1211" x="414.05" y="163.2851">FATFS</text></g><g class="entity" data-entity="SDCard" data-source-line="7" data-uid="ent0006" id="entity_SDCard"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="97.1143" x="267.05" y="130.29"/><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="344.1643" y="135.29"/><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="342.1643" y="137.29"/><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="342.1643" y="141.29"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57.1143" x="282.05" y="163.2851">SD Card</text></g><g class="entity" data-entity="user_diskio_spi" data-source-line="8" data-uid="ent0007" id="entity_user_diskio_spi"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="61.458" x="516.88" y="130.29"/><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="558.338" y="135.29"/><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="556.338" y="137.29"/><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="556.338" y="141.29"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="21.458" x="531.88" y="163.2851">SPI</text></g><g class="entity" data-entity="IS" data-source-line="9" data-uid="ent0008" id="entity_IS"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="153.9346" x="436.64" y="7"/><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="570.5746" y="12"/><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="568.5746" y="14"/><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="568.5746" y="18"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113.9346" x="451.64" y="39.9951">Internal Sensors</text></g><g class="link" data-entity-1="RTOS" data-entity-2="PC" data-source-line="11" data-uid="lnk9" id="link_RTOS_PC"><path d="M116.41,30.14 C149.37,30.14 186.05,30.14 223.44,30.14" fill="none" id="RTOS-to-PC" style="stroke:#E7E7E7;stroke-width:1;"/><polygon fill="#E7E7E7" points="229.44,30.14,220.44,26.14,224.44,30.14,220.44,34.14,229.44,30.14" style="stroke:#E7E7E7;stroke-width:1;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="77.3081" x="134.51" y="23.2069">start thread</text></g><g class="link" data-entity-1="RTOS" data-entity-2="LOGGER" data-source-line="12" data-uid="lnk10" id="link_RTOS_LOGGER"><path d="M85.01,53.68 C107.65,75.46 137.4168,104.1295 160.0068,125.8695" fill="none" id="RTOS-to-LOGGER" style="stroke:#E7E7E7;stroke-width:1;"/><polygon fill="#E7E7E7" points="164.33,130.03,160.6189,120.9071,160.7273,126.5629,155.0715,126.6713,164.33,130.03" style="stroke:#E7E7E7;stroke-width:1;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="77.3081" x="133.61" y="96.3569">start thread</text></g><g class="link" data-entity-1="PC" data-entity-2="LOGGER" data-source-line="13" data-uid="lnk11" id="link_PC_LOGGER"><path d="M291.83,53.68 C268.84,75.46 238.5659,104.1637 215.6159,125.9037" fill="none" id="PC-to-LOGGER" style="stroke:#E7E7E7;stroke-width:1;stroke-dasharray:7.0,7.0;"/><polygon fill="#E7E7E7" points="211.26,130.03,220.5447,126.7446,214.8899,126.5915,215.043,120.9367,211.26,130.03" style="stroke:#E7E7E7;stroke-width:1;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="98.8965" x="259.61" y="96.3569">send telemetry</text></g><g class="link" data-entity-1="PC" data-entity-2="IS" data-source-line="15" data-uid="lnk12" id="link_PC_IS"><path d="M401.85,30.14 C413.34,30.14 418.84,30.14 430.34,30.14" fill="none" id="PC-to-IS" style="stroke:#E7E7E7;stroke-width:1;"/><polygon fill="#E7E7E7" points="436.34,30.14,427.34,26.14,431.34,30.14,427.34,34.14,436.34,30.14" style="stroke:#E7E7E7;stroke-width:1;"/></g><g class="link" data-entity-1="LOGGER" data-entity-2="SDCard" data-source-line="17" data-uid="lnk13" id="link_LOGGER_SDCard"><path d="M232.11,153.44 C243.64,153.44 249.16,153.44 260.68,153.44" fill="none" id="LOGGER-to-SDCard" style="stroke:#E7E7E7;stroke-width:1;"/><polygon fill="#E7E7E7" points="266.68,153.44,257.68,149.44,261.68,153.44,257.68,157.44,266.68,153.44" style="stroke:#E7E7E7;stroke-width:1;"/></g><g class="link" data-entity-1="SDCard" data-entity-2="FATFS" data-source-line="18" data-uid="lnk14" id="link_SDCard_FATFS"><path d="M364.44,153.44 C375.84,153.44 381.25,153.44 392.66,153.44" fill="none" id="SDCard-to-FATFS" style="stroke:#E7E7E7;stroke-width:1;"/><polygon fill="#E7E7E7" points="398.66,153.44,389.66,149.44,393.66,153.44,389.66,157.44,398.66,153.44" style="stroke:#E7E7E7;stroke-width:1;"/></g><g class="link" data-entity-1="FATFS" data-entity-2="user_diskio_spi" data-source-line="19" data-uid="lnk15" id="link_FATFS_user_diskio_spi"><path d="M482.41,153.44 C493.78,153.44 499.16,153.44 510.54,153.44" fill="none" id="FATFS-to-user_diskio_spi" style="stroke:#E7E7E7;stroke-width:1;"/><polygon fill="#E7E7E7" points="516.54,153.44,507.54,149.44,511.54,153.44,507.54,157.44,516.54,153.44" style="stroke:#E7E7E7;stroke-width:1;"/></g></g></svg></div></div>
+
+<h2 id="freertos">FreeRTOS</h2>
+<p>Als basis wordt gebruik gemaakt van <a href="https://arm-software.github.io/CMSIS-FreeRTOS/latest/index.html">FreeRTOS (CMSIS v2 implementation)</a>. Verdere details zijn te vinden op deze pagaina: <a href="https://arm-software.github.io/CMSIS-FreeRTOS/latest/index.html">https://arm-software.github.io/CMSIS-FreeRTOS/latest/index.html</a></p>
 <h2 id="programma-controller">Programma controller</h2>
 <p>Voor het uitvoeren van de programma, is er een programma controller. De details staan beschreven in <a href="programma_controller/">programma controller</a>.</p>
-<h2 id="logger-freertos-implementation">Logger - FreeRTOS implementation</h2>
-<p>De <code>logger</code> implementeerd functionaliteiten om een log te schrijven op een SD kaart (Via de SPI Interface).</p>
+<h2 id="logger">Logger</h2>
+<p>De <code>logger</code> implementeerd functionaliteiten om een log te schrijven op een SD kaart (Via de SPI Interface). Omdat schrijven via de SPI naar SD enige tijd kan duren, wordt deze logger in een separate thread gestart. Deze thread kan voorzien worden van informatie via een message queue. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>De <code>void start_logger(void *argument)</code> is geimplementeerd in the bilbiotheek. De functie is <code>__weak</code> gemaakt in <code>freertos.c</code>. Om dit te laten werken, is in de STM32CubeMX programma een FreeRTOS taak gemaakt met de naam <strong>logTask</strong> en de functie <code>start_logger</code>. De <strong>Code Generation Option</strong> is ingesteld op <strong>As Weak</strong>.</p>
+</div>
 <p>Voor details over de logger, kijk in de hoofdstuk over de <a href="logger/">logger</a>.</p>
-<h2 id="message-mechanisme">Message mechanisme</h2>
-<p>Om een berichte te schrijven op de SD kaart, kan een specifieke wachtrij gevuld worden. Deze rij heet <strong>loggerQueue</strong>. De queue wordt uitmatisch gemaakt bij het schrijven van de broncode vanuit STM32CubeMX.</p>
-<p>Om een bericht te sturen moet je <code>sd_logger.h</code> laden in de c code. Daarna kan de volgende code toegevoegd worden:</p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="n">MSGQUEUE_OBJ_t</span><span class="w"> </span><span class="n">msg</span><span class="p">;</span>
-
-<span class="n">msg</span><span class="p">.</span><span class="n">index</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-<span class="n">msg</span><span class="p">.</span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">;</span>
-<span class="n">osMessageQueuePut</span><span class="p">(</span><span class="n">loggerQueueHandle</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0U</span><span class="p">);</span>
-</code></pre></div>
 <h2 id="fatfs-met-de-sd-card-controller-via-spi">FatFS met de SD Card Controller via SPI</h2>
 <p>Om bestanden te kunnen maken op een SD kaart, gebruiken we een SD Card reader. Deze wordt aangesloten via een SPI Interface met de Nucleo board. Vervolgens gebruiken we de FatFS library om een bestandsysteem te simuleren.</p>
 <p>De FatFS staat aangemerkt als <code>USER_Driver</code> in STM32CubeMX. Deze userdriver is gedefineerd in <a href="https://github.com/Ge-Wit-t-Oit-Noit-Nie/2025-software/blob/625d55744113268ce4867d9d272ac160e8ca30f1/FATFS/Target/user_diskio.h">user_diskio.h</a> en geimplementeerd in  <a href="https://github.com/Ge-Wit-t-Oit-Noit-Nie/2025-software/blob/625d55744113268ce4867d9d272ac160e8ca30f1/FATFS/Target/user_diskio.c">user_diskio.c</a>.</p>
-<p>De vertaalslag van de FATFS implentatie naar SPI commando's gebeurt in <a href="https://github.com/Ge-Wit-t-Oit-Noit-Nie/2025-software/blob/625d55744113268ce4867d9d272ac160e8ca30f1/Middlewares/gwtonn/fatfs_sd.c">fatfs_sd.c</a>.</p>
+<p>De vertaalslag van de FATFS implentatie naar SPI commando's gebeurt in <a href="https://github.com/Ge-Wit-t-Oit-Noit-Nie/2025-software/blob/feature/57-Update-van-programma-vanaf-SD-Card/Middlewares/gwtonn/src/user_diskio_spi.c">user_diskio_spi.c</a>.</p>
 
 
 
@@ -1127,6 +1089,12 @@
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/interaction.js"></script>
       
     
   </body>
