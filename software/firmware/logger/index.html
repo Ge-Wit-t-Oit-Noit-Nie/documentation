@@ -1013,45 +1013,50 @@
 
 
 <h1 id="logger">Logger</h1>
-<p>De logger wordt gebruikt om cruciale informatie op te slaan over de staat van de STM32 en het programma.</p>
+<p>De logger wordt gebruikt om cruciale informatie op te slaan over de staat van de
+STM32 en het programma.</p>
+<p>Voor het opslaan wordt een bestand aangemaakt op de SD Kaart met de naam "logger.txt".</p>
 <h2 id="voorbeeld">Voorbeeld</h2>
 <p>Kijk naar de volgende entry:</p>
-<div class="highlight"><pre><span></span><code>[13:18:16],16,3,9,64100,149
+<div class="highlight"><pre><span></span><code>[00:00:09],0x00000005,0x00000007,0x00001A9E,0x00000633,0x000000F0
 </code></pre></div>
 <p>De volgende gegevens worden weergegeven:</p>
 <ul>
 <li><strong>[13:18:16]</strong>: Tijd van het bericht</li>
-<li><strong>16</strong>: Bericht soort (MSG_PROGRAM_COUNTER)</li>
-<li><strong>3</strong>: <em>instruction_pointer</em> op moment van loggen</li>
-<li><strong>9</strong>: <em>shutdown_index</em> op moment van loggen</li>
-<li><strong>64100</strong>: Interne temperatuur van de STM32</li>
-<li><strong>149</strong>: Actuele voltage op moment van schrijven van de STM32</li>
+<li><strong>0x00000005</strong>: De instructiepointer</li>
+<li><strong>0x00000007</strong>: <em>shutdown_index</em> op moment van loggen</li>
+<li><strong>0x00001A9E</strong>: Interne temperatuur van de STM32</li>
+<li><strong>0x00000633</strong>: Actuele voltage op moment van schrijven van de STM32</li>
+<li><strong>0x000000F0</strong>: De hardware trigger die deze log genereerde (indien beschikbaar, anders 0)</li>
 </ul>
 <h2 id="logbericht-sturen">Logbericht sturen</h2>
-<p>Om een bericht te loggen dient er een bericht op de queue gezet te worden. Volgende stukje code is een voorbeeld:</p>
-<div class="highlight"><pre><span></span><code><span class="n">MSGQUEUE_OBJ_t</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">MSG_PROGRAM_COUNTER</span><span class="p">,</span>
-<span class="w">    </span><span class="n">pcr</span><span class="p">.</span><span class="n">instruction_pointer</span><span class="p">,</span>
-<span class="w">    </span><span class="n">pcr</span><span class="p">.</span><span class="n">shutdown_instruction_pointer</span><span class="p">,</span>
-<span class="w">    </span><span class="n">get_temperature</span><span class="p">(),</span>
-<span class="w">    </span><span class="n">get_vref</span><span class="p">(),</span>
-<span class="w">    </span><span class="p">};</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">osOK</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">osMessageQueuePut</span><span class="p">(</span><span class="n">loggerQueueHandle</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0U</span><span class="p">))</span>
+<p>Om een bericht te loggen dient er een bericht op de queue gezet te worden. 
+Volgende stukje code is een voorbeeld:</p>
+<div class="highlight"><pre><span></span><code><span class="n">telemetry_t</span><span class="w"> </span><span class="n">telemetry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">program_controller_registers</span><span class="o">-&gt;</span><span class="n">instruction_pointer</span><span class="p">,</span>
+<span class="w">    </span><span class="n">program_controller_registers</span><span class="o">-&gt;</span><span class="n">shutdown_instruction_pointer</span><span class="p">,</span>
+<span class="w">    </span><span class="n">is_get_temperature</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">is_get_vref</span><span class="p">(),</span>
+<span class="w">    </span><span class="mi">0</span><span class="p">,</span>
+<span class="p">};</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">osOK</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">osMessageQueuePut</span><span class="p">(</span><span class="n">loggerQueueHandle</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">telemetry</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0U</span><span class="p">))</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error: Could not send message to loggerQueueHandle</span><span class="se">\n\r</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error: Could not send message to loggerQueueHandle</span><span class="se">\n\r</span><span class="s">&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Zoals je kan zien wordt er eerst een bericht aangemaakt. Daarna wordt deze op de queue gezet (<code>loggerQueueHandle</code>). Voor de exacte details van het queue mechanisme kan je kijken bij <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html">ST</a>.</p>
+<p>Zoals je kan zien wordt er eerst een bericht aangemaakt.
+Daarna wordt deze op de queue gezet (<code>loggerQueueHandle</code>).
+Voor de exacte details van het queue mechanisme kan je kijken bij <a href="https://arm-software.github.io/CMSIS_6/latest/RTOS2/group__CMSIS__RTOS__Message.html">ST</a>.</p>
 <h3 id="log-bericht">Log bericht</h3>
-<p>Voor het versturen van een log bericht wordt gebruik gemaakt van een structure. </p>
+<p>Voor het versturen van een log bericht wordt gebruik gemaakt van een <em>structure</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">message</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">program_counter</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">instruction_pointer</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">shutdown_index_register</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">temperature</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">vrefint</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="n">MSGQUEUE_OBJ_t</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">trigger</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">telemetry_t</span><span class="p">;</span>
 </code></pre></div>
 <p>Hiervoor geld de volgende definitie:</p>
 <table>
@@ -1064,12 +1069,7 @@
 </thead>
 <tbody>
 <tr>
-<td>message</td>
-<td>uint8_t</td>
-<td>Een waarde die aangeeft wat het bericht betekened (<em>MSG_PROGRAM_COUNTER</em>)</td>
-</tr>
-<tr>
-<td>program_counter</td>
+<td>instruction_pointer</td>
 <td>uint32_t</td>
 <td>De huidige waare van de <em>instruction_pointer</em></td>
 </tr>
@@ -1087,6 +1087,11 @@
 <td>vrefint</td>
 <td>uint16_t</td>
 <td>De huidige voltage van de STM32 in mV</td>
+</tr>
+<tr>
+<td>trigger</td>
+<td>uint8_t</td>
+<td>Het event dat de log initieerde</td>
 </tr>
 </tbody>
 </table>
