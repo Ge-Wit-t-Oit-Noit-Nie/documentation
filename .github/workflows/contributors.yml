@@ -18,3 +18,5 @@ jobs:
         PATH: '/docs/index.md'
         COMMIT_MESSAGE: 'docs(about): update contributors'
         AVATAR_SHAPE: 'round'
+        PULL_REQUEST: 'true'
+        BRANCH: 'main'
