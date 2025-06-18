@@ -4,20 +4,20 @@ Hier komt een beschrijving van de setup voor 2025.
 
 ## Hardware setup
 
-> [!NOTE]
-> Maak een schema met de verschillende componenten
+!!! note
+    Maak een schema met de verschillende componenten
 
 ### Component 1
 
 ### Component 2
 
-## Programma 
+## Programma
 
 Beschrijf hier de programma die uitgevoerd moet worden in simpele stappen.
 
 Voeg eventueel een tekening toe met uml:
 
-```plantuml
+```puml
 @startuml
 
 start

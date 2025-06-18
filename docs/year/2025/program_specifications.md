@@ -11,22 +11,37 @@
 
 ### PINS
 
-| PIN  | Assignment  |
-| ---- | ----------- |
-| PA4  | SPI1_CS     |
-| PA5  | SPI1_SCK    |
-| PA6  | SPI1_MISO   |
-| PA7  | SPI1_MOSI   |
-| PA13 | SYS_JTMS-SWDIO |
-| PA14 | SYS_JTMS-SWCLK |
-| PB0  | LED 1 [Green] - DefaultTask running |
-| PB1  | GPIO External Interrupt mode with Rise Edge trigger detection - Emergency button |
-| PB3  | SYT_JTDO-SWO |
-| PB7  | LED 2 [Blue] |
-| PB14 | LED 3 [Red] - HardFault_Handler entered |
-| PC14 | RCC_OSC32 |
-| PC15 | RCC_OSC32_OUT |
-| PD8  | UART3_TX |
-| PD9  | UART3_RX |
-| PH0  | RCC_OSC_IN |
-| PH1  | RCC_OSC_OUT |
+|Pin Programma | Pin bord  | Assignment  |
+| --- | ---- | ----------- |
+| IO00 | PA0  |      |
+| IO01 | PA1  |     |
+| IO02 | PA2  |    |
+| IO03 | PA3  |    |
+| IO04 | PA8 |  |
+| IO05 | PA11 |  |
+| IO06 | PA12  |  |
+| IO07 | PA15  |  |
+| IO08 | PB2  |  |
+| IO09 | PB4  |  |
+| IO10 | PB5 |  |
+| IO11 | PB6 |  |
+| IO12 | PB8 |  |
+| IO13 | PB9  |  |
+| IO14 | PB12  |  |
+| IO15 | PB13  |  |
+| IO16 | PB15  |  |
+| HSIO00 | PC0  |  |
+| HSIO01 | PC1  |  |
+| HSIO02 | PC2  |  |
+| HSIO03 | PC3  |  |
+| HSIO04 | PC4  |  |
+| HSIO05 | PC6  |  |
+| HSIO06 | PC7  |  |
+| HSIO07 | PC8  |  |
+| HSIO08 | PC9  |  |
+| HSIO09 | PC10  |  |
+| HSIO10 | PC11  |  |
+| HSIO11 | PC12  |  |
+| HSIO12 | PC13  |  |
+
+**L**: Low speed poort; **H**: High speed poort
