@@ -36,5 +36,19 @@ Alle code en documentatie word uitgegeven onder de **MIT License**. Iedere repos
             <sub style="font-size:14px"><b>Bas de Groof</b></sub>
         </a>
     </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/brambolinie>
+            <img src=https://avatars.githubusercontent.com/u/56510487?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=brambolinie/>
+            <br />
+            <sub style="font-size:14px"><b>brambolinie</b></sub>
+        </a>
+    </td>
+    <td align="center" style="word-wrap: break-word; width: 150.0; height: 150.0">
+        <a href=https://github.com/jelle-verest>
+            <img src=https://avatars.githubusercontent.com/u/64482308?v=4 width="100;"  style="border-radius:50%;align-items:center;justify-content:center;overflow:hidden;padding-top:10px" alt=Jelle Verest/>
+            <br />
+            <sub style="font-size:14px"><b>Jelle Verest</b></sub>
+        </a>
+    </td>
 </tr>
 </table>

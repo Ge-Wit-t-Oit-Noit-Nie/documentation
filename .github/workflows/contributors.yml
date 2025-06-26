@@ -1,20 +1,29 @@
-name: Add contributors
+name: Add Contributors
 on:
-  push:
-    branches-ignore:
-      - main
+  workflow_dispatch:  # Allows manual triggering from GitHub UI
+  schedule:
+    - cron: '20 20 * * *'  # Runs daily at 20:20 UTC
+
 jobs:
   add-contributors:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
     - uses: actions/checkout@v2
+      name: Checkout repository
+      
     - uses: BobAnkh/add-contributors@master
+      name: Add contributors
       with:
+        ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
         CONTRIBUTOR: '## Contributors'
         COLUMN_PER_ROW: '6'
-        ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
         IMG_WIDTH: '100'
         FONT_SIZE: '14'
-        PATH: '/docs/about.md'
+        PATH: '/docs/index.md'
         COMMIT_MESSAGE: 'docs(about): update contributors'
         AVATAR_SHAPE: 'round'
+        BRANCH: 'main'  # Target branch for changes
+        PULL_REQUEST: 'main'  # Creates a PR to merge into main        
