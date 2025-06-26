@@ -471,13 +471,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#begin_einde_programma_index" class="md-nav__link">
+  <a href="#pauze" class="md-nav__link">
     <span class="md-ellipsis">
-      BEGIN_EINDE_PROGRAMMA_INDEX
+      PAUZE
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="BEGIN_EINDE_PROGRAMMA_INDEX">
+    <nav class="md-nav" aria-label="PAUZE">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -519,13 +519,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#zet_port_aan" class="md-nav__link">
+  <a href="#zet_poort_aan" class="md-nav__link">
     <span class="md-ellipsis">
-      ZET_PORT_AAN
+      ZET_POORT_AAN
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="ZET_PORT_AAN">
+    <nav class="md-nav" aria-label="ZET_POORT_AAN">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -543,13 +543,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#zet_port_uit" class="md-nav__link">
+  <a href="#zet_poort_uit" class="md-nav__link">
     <span class="md-ellipsis">
-      ZET_PORT_UIT
+      ZET_POORT_UIT
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="ZET_PORT_UIT">
+    <nav class="md-nav" aria-label="ZET_POORT_UIT">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1147,13 +1147,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#begin_einde_programma_index" class="md-nav__link">
+  <a href="#pauze" class="md-nav__link">
     <span class="md-ellipsis">
-      BEGIN_EINDE_PROGRAMMA_INDEX
+      PAUZE
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="BEGIN_EINDE_PROGRAMMA_INDEX">
+    <nav class="md-nav" aria-label="PAUZE">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1195,13 +1195,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#zet_port_aan" class="md-nav__link">
+  <a href="#zet_poort_aan" class="md-nav__link">
     <span class="md-ellipsis">
-      ZET_PORT_AAN
+      ZET_POORT_AAN
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="ZET_PORT_AAN">
+    <nav class="md-nav" aria-label="ZET_POORT_AAN">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1219,13 +1219,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#zet_port_uit" class="md-nav__link">
+  <a href="#zet_poort_uit" class="md-nav__link">
     <span class="md-ellipsis">
-      ZET_PORT_UIT
+      ZET_POORT_UIT
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="ZET_PORT_UIT">
+    <nav class="md-nav" aria-label="ZET_POORT_UIT">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1335,10 +1335,10 @@
 <!-- no toc -->
 <ul>
 <li><a href="#stoppen">STOPPEN</a></li>
-<li><a href="#begin_einde_programma_index">BEGIN_EINDE_PROGRAMMA_INDEX</a></li>
+<li><a href="#pauze">PAUZE</a></li>
 <li><a href="#wachten">Wachten</a></li>
-<li><a href="#zet_port_aan">ZET_PORT_AAN</a></li>
-<li><a href="#zet_port_uit">ZET_PORT_UIT</a></li>
+<li><a href="#zet_poort_aan">ZET_POORT_AAN</a></li>
+<li><a href="#zet_poort_uit">ZET_POORT_UIT</a></li>
 <li><a href="#flip_poort">FLIP_POORT</a></li>
 <li><a href="#bewaar_status">BEWAAR_STATUS</a></li>
 <li><a href="#spring">SPRING</a></li>
@@ -1357,8 +1357,8 @@
 <tbody>
 <tr>
 <td>OPCODE</td>
-<td>0b0000 0000 0000 0000</td>
-<td>0x0000</td>
+<td>0b0000 0000</td>
+<td>0x00</td>
 <td></td>
 </tr>
 </tbody>
@@ -1367,8 +1367,8 @@
 <h3 id="voorbeeld">Voorbeeld</h3>
 <div class="highlight"><pre><span></span><code><span class="n">STOPPEN</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="begin_einde_programma_index">BEGIN_EINDE_PROGRAMMA_INDEX</h2>
-<p>De functie BEGIN_EINDE_PROGRAMMA_INDEX wordt als volgt gecodeerd:</p>
+<h2 id="pauze">PAUZE</h2>
+<p>De functie PAUZE wordt als volgt gecodeerd:</p>
 <table>
 <thead>
 <tr>
@@ -1381,21 +1381,15 @@
 <tbody>
 <tr>
 <td>OPCODE</td>
-<td>0b0001 0000 0000 0000</td>
-<td>0x1000</td>
+<td>0b0001 0000</td>
+<td>0x10</td>
 <td></td>
-</tr>
-<tr>
-<td>DELAY</td>
-<td>0b0000 1111 1111 1111</td>
-<td>0x0FFF</td>
-<td>INDEX</td>
 </tr>
 </tbody>
 </table>
-<p>De maximale index is dus 4095</p>
+<p>Deze functie is by default ingevult in het geheugen.</p>
 <h3 id="voorbeeld_1">Voorbeeld</h3>
-<div class="highlight"><pre><span></span><code><span class="n">BEGIN_EINDE_PROGRAMMA_INDEX</span><span class="p">(</span><span class="n">INDEX</span><span class="o">=</span><span class="mh">0x0011</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">PAUZE</span><span class="p">;</span>
 </code></pre></div>
 <h2 id="wachten">Wachten</h2>
 <p>De functie WACHTEN wordt als volgt gecodeerd:</p>
@@ -1411,23 +1405,23 @@
 <tbody>
 <tr>
 <td>OPCODE</td>
-<td>0b0010 0000 0000 0000</td>
+<td>0b0010 0000</td>
 <td>0x2000</td>
 <td></td>
 </tr>
 <tr>
-<td>DELAY</td>
+<td>OPCODE</td>
 <td>0b0000 1111 1111 1111</td>
 <td>0x0FFF</td>
-<td>DELAY</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<p>De maximale delay is dus 4095 ms</p>
+<p>De maximale delay is dus 4095 seconden</p>
 <h3 id="voorbeeld_2">Voorbeeld</h3>
 <div class="highlight"><pre><span></span><code><span class="n">WACHTEN</span><span class="p">(</span><span class="n">INDEX</span><span class="o">=</span><span class="mi">1500</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="zet_port_aan">ZET_PORT_AAN</h2>
+<h2 id="zet_poort_aan">ZET_POORT_AAN</h2>
 <p>De functie ZET_PORT_AAN wordt als volgt gecodeerd:</p>
 <table>
 <thead>
@@ -1446,31 +1440,73 @@
 <td></td>
 </tr>
 <tr>
+<td>STATUS</td>
+<td>0b0000 0001 0000 0000</td>
+<td>0x0100</td>
+<td></td>
+</tr>
+<tr>
+<td>HSIO</td>
+<td>0b0000 0001 0000 0000</td>
+<td>0x0200</td>
+<td>HSIO (0x0 / 0x01)</td>
+</tr>
+<tr>
+<td>POORT</td>
+<td>0b0000 0000 0001 1111</td>
+<td>0x001F</td>
+<td>POORT</td>
+</tr>
+</tbody>
+</table>
+<p>De PORT is een van de 13 (0-12) gewone IO Poorten of 0-8 HSIO poorten.</p>
+<h3 id="voorbeeld_3">Voorbeeld</h3>
+<div class="highlight"><pre><span></span><code><span class="n">ZET_POORT_AAN</span><span class="w"> </span><span class="p">(</span><span class="n">POORTNR</span><span class="o">=</span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="n">HSIO</span><span class="o">=</span><span class="mh">0x00</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="zet_poort_uit">ZET_POORT_UIT</h2>
+<p>De functie ZET_POORT_UIT wordt als volgt gecodeerd:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Bitmask</th>
+<th>Hex</th>
+<th>Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OPCODE</td>
+<td>0b0100 0000 0000 0000</td>
+<td>0x3000</td>
+<td></td>
+</tr>
+<tr>
+<td>STATUS</td>
+<td>0b0000 0000 0000 0000</td>
+<td>0x0000</td>
+<td></td>
+</tr>
+<tr>
 <td>HSIO</td>
 <td>0b0000 0010 0000 0000</td>
 <td>0x0200</td>
 <td>HSIO (0x0 / 0x01)</td>
 </tr>
 <tr>
-<td>HIGH</td>
-<td>0b0000 0001 0000 0000</td>
-<td>0x0100</td>
-<td></td>
-</tr>
-<tr>
-<td>PORT</td>
+<td>POORT</td>
 <td>0b0000 0000 0001 1111</td>
 <td>0x001F</td>
-<td>PORTNR</td>
+<td>POORT</td>
 </tr>
 </tbody>
 </table>
-<p>De PORT is een van de 13 (0-12) gewone IO Poorten of 0-8 HSIO poorten.</p>
-<h3 id="voorbeeld_3">Voorbeeld</h3>
-<div class="highlight"><pre><span></span><code><span class="n">ZET_PORT_AAN</span><span class="w"> </span><span class="p">(</span><span class="n">PORTNR</span><span class="o">=</span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="n">HSIO</span><span class="o">=</span><span class="mh">0x00</span><span class="p">);</span>
+<p>De POORT is een van de 13 (0-12) gewone IO Poorten of 0-8 HSIO poorten.</p>
+<h3 id="voorbeeld_4">Voorbeeld</h3>
+<div class="highlight"><pre><span></span><code><span class="n">ZET_POORT_UIT</span><span class="w"> </span><span class="p">(</span><span class="n">POORTNR</span><span class="o">=</span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="n">HSIO</span><span class="o">=</span><span class="mh">0x00</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="zet_port_uit">ZET_PORT_UIT</h2>
-<p>De functie ZET_PORT_AAN wordt als volgt gecodeerd:</p>
+<h2 id="flip_poort">FLIP_POORT</h2>
+<p>De functie FLIP_POORT wordt als volgt gecodeerd:</p>
 <table>
 <thead>
 <tr>
@@ -1494,58 +1530,16 @@
 <td>HSIO (0x0 / 0x01)</td>
 </tr>
 <tr>
-<td>HIGH</td>
-<td>0b0000 0001 0000 0000</td>
-<td>0x0100</td>
-<td></td>
-</tr>
-<tr>
-<td>PORT</td>
+<td>POORT</td>
 <td>0b0000 0000 0001 1111</td>
 <td>0x001F</td>
-<td>PORTNR</td>
+<td>POORT</td>
 </tr>
 </tbody>
 </table>
-<p>De PORT is een van de 13 (0-12) gewone IO Poorten of 0-8 HSIO poorten.</p>
-<h3 id="voorbeeld_4">Voorbeeld</h3>
-<div class="highlight"><pre><span></span><code><span class="n">ZET_PORT_UIT</span><span class="w"> </span><span class="p">(</span><span class="n">PORTNR</span><span class="o">=</span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="n">HSIO</span><span class="o">=</span><span class="mh">0x00</span><span class="p">);</span>
-</code></pre></div>
-<h2 id="flip_poort">FLIP_POORT</h2>
-<p>De functie FLIP_POORT wordt als volgt gecodeerd:</p>
-<table>
-<thead>
-<tr>
-<th>Element</th>
-<th>Bitmask</th>
-<th>Hex</th>
-<th>Parameter</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>OPCODE</td>
-<td>0b0101 0000 0000 0000</td>
-<td>0x5000</td>
-<td></td>
-</tr>
-<tr>
-<td>HSIO</td>
-<td>0b0000 0010 0000 0000</td>
-<td>0x0200</td>
-<td>HSIO (0x0 / 0x01)</td>
-</tr>
-<tr>
-<td>PORT</td>
-<td>0b0000 0000 0001 1111</td>
-<td>0x001F</td>
-<td>PORTNR</td>
-</tr>
-</tbody>
-</table>
-<p>De PORT is een van de 13 (0-12) gewone IO Poorten of 0-8 HSIO poorten.</p>
+<p>De POORT is een van de 13 (0-12) gewone IO Poorten of 0-8 HSIO poorten.</p>
 <h3 id="voorbeeld_5">Voorbeeld</h3>
-<div class="highlight"><pre><span></span><code><span class="n">FLIP_POORT</span><span class="w"> </span><span class="p">(</span><span class="n">PORTNR</span><span class="o">=</span><span class="mh">0x01</span><span class="p">,</span><span class="w"> </span><span class="n">HSIO</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">FLIP_POORT</span><span class="w"> </span><span class="p">(</span><span class="n">POORTNR</span><span class="o">=</span><span class="mh">0x01</span><span class="p">,</span><span class="w"> </span><span class="n">HSIO</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="bewaar_status">BEWAAR_STATUS</h2>
 <p>De functie BEWAAR_STATUS wordt als volgt gecodeerd:</p>
@@ -1561,8 +1555,8 @@
 <tbody>
 <tr>
 <td>OPCODE</td>
-<td>0b0110 0000 0000 0000</td>
-<td>0x6000</td>
+<td>0b0110 0000</td>
+<td>0x50</td>
 <td></td>
 </tr>
 </tbody>
@@ -1571,7 +1565,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">BEWAAR_STATUS</span><span class="p">;</span>
 </code></pre></div>
 <h2 id="spring">SPRING</h2>
-<p>De functie BEWAAR_STATUS wordt als volgt gecodeerd:</p>
+<p>De functie SPRING wordt als volgt gecodeerd:</p>
 <table>
 <thead>
 <tr>
@@ -1584,15 +1578,15 @@
 <tbody>
 <tr>
 <td>OPCODE</td>
-<td>0b0110 0000 0000 0000</td>
-<td></td>
+<td>0b0111 0000 0000 0000 0000 0000</td>
+<td>0x600000</td>
 <td></td>
 </tr>
 <tr>
 <td>INDEX</td>
-<td>0b0000 1111 1111 1111</td>
-<td>x0FFF</td>
-<td>Spring direct naar index</td>
+<td>0b0000 0001 1111 1111 1111 1111</td>
+<td>0x01FFFF</td>
+<td>INDEX</td>
 </tr>
 </tbody>
 </table>
