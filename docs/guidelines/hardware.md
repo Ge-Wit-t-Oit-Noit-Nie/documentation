@@ -12,8 +12,19 @@ staat in het engels beschreven in [deze link](https://greendome.tech/wp-content/
 De volgende tekening is een schematische weergave van microcontroller aansluiting
 op de printplaat.
 
-![Schema van de Microcontroller](../assets/images/microcontroller_schematics.jpeg)
+![Schema van de Microcontroller](../assets/images/microcontroller_schematics.png)
 
+Bij projecten groter dan 10 componenten moeten subsheets gebruikt worden zoals te zien in onderstaande afbeelding. Alle connecties tussen sheets zullen met lijnen verbonden worden en met peilen aangegeven worden om de richting van data/stroomverkeer aan te geven.
+
+![Schema met subsheets](../assets/images/schematics_subsheet.png)
+
+Indien er onderscheid tussen componentgroepen gemaakt moet worden moet dit binnen een sheet gebeuren zoals te zien in onderstaande afbeelding. Om losse componentgroepen te onderscheiden zullen er grensgebieden om de componentgroepen komen waarin de naam van de groep staat.
+
+![Schema met sheets](../assets/images/schematics_sheet.png)
+
+Deze conventies zorgen voor een makkelijk te lezen en aan te passen schema.
+
+Er zal een polariteit geimplementeerd worden op de printplaten zodat componenten niet verkeerd ingestoken kunnen worden. Dit kan gedaan worden door asymmetrische connectoren te gebruiken of meerdere connectoren te gebruiken die asymmetrisch geplaatst zijn (hoek van 90 °, plaatsing schuin tegenover elkaar).
 ## Technische specificatie
 
 De microcontroller die gekozen is voor het project is de **STM32F412RGT6** van
@@ -82,7 +93,7 @@ Indien dit in de toekomst verandert moet er opnieuw via de datasheet van het
 nieuwe component gekeken worden naar de laad condensatoren.
 
 !!! info "LET OP"
-    Dit component heeft een niet standaard footprint in KiCAD.
+    Dit component heeft een niet standaard footprint in KiCAD. Pas de footprint van het component aan binnen KiCAD.
 
 ## Programmeren via SWD
 
@@ -122,3 +133,11 @@ snelheidsbus (Regular I/O). De desbetreffende pinnen zijn te vinden onder het ko
 De positieve pool moet op een van de 3V3 pinnen terecht komen via de voeding zelf
 of het STM32 bord. De negatieve pool kan verbonden worden met een GND pin op de
 basismodule of de STLINK/V2. Deze pinnen zijn op de basismodule gemarkeerd.
+
+### Huidige programmeertool STLINK/V2 + Piggyback Module
+Om het programmeergemak te verhogen en risico op foutieve aansluitingen te verkleinen is er een printplaat ontwikkeld die een makkelijke connectie vormt tussen de STLINK/V2 en de piggyback module. Deze is te zien in onderstaande afbeelding.
+
+![Programmer](../assets/images/HW_programmer.png)
+
+#### Andere programmers
+Om voor andere programmeerbare bordjes ook te voorkomen dat het foutief aangesloten word zullen voor deze bordes een op maat gemaakte programmer ontworpen worden. 
