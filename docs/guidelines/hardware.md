@@ -12,7 +12,7 @@ staat in het engels beschreven in [deze link](https://greendome.tech/wp-content/
 De volgende tekening is een schematische weergave van microcontroller aansluiting
 op de printplaat.
 
-![Schema van de Microcontroller](/assets/images/microcontroller_schematics.jpeg)
+![Schema van de Microcontroller](../assets/images/microcontroller_schematics.jpeg)
 
 ## Technische specificatie
 
@@ -22,7 +22,7 @@ voldoende programma's van komende jaren met gemak te kunnen draaien. Daarnaast
 bevat deze chip meerdere communicatiemogelijkheden die in de toekomst gebruikt
 kunnen worden.
 
-[Download datasheet](/assets/pdf/stm32f412rg.pdf)
+[Download datasheet](../assets/pdf/stm32f412rg.pdf)
 
 ## Klokken van de microcontroller
 
