@@ -1116,9 +1116,9 @@
 <p>Er is gekozen om een generieke basismodule te maken die voor de meeste applicaties geschikt is. Dit is gedaan om kosten te besparen en programmeergemak te creëren. Hieronder bevind zich informatie over deze basismodule en wat er beschikbaar is. Dit bord zal op een draagbord komen wat alle functies daadwerkelijk uitvoert.</p>
 <p><img alt="HW_foto" src="../afbeeldingen/Bord.png" /></p>
 <h2 id="benaming">Benaming</h2>
-<p>Bovenaan de basismodule staan de naam en revisie (Hier "GWTONN Piggyback R02") gevolgd door een wit vlak om aan te geven welk nummer het is qua bordje. Mocht er iets kapot zijn aan het bordje kan dit gemarkeerd worden met watervaste stift in het "AFKEUR" vakje. Als dit vakje een andere kleur heeft dan wit mag deze niet op de wagen gebruikt worden.</p>
+<p>Bovenaan de basismodule staan de naam en revisie (Hier "GWTONN Piggyback R02") gevolgd door een wit vlak om aan te geven welk nummer het is qua bordje. Zo zijn de modules makkelijk te identificeren mocht er een fout optreden. Mocht er iets kapot zijn aan het bordje kan dit gemarkeerd worden met watervaste stift in het "AFKEUR" vakje. Als dit vakje een andere kleur heeft dan wit mag deze niet op de wagen gebruikt worden.</p>
 <h3 id="microcontroller">Microcontroller</h3>
-<p>De microcontroller is het brein van de hardware. Deze chip voert alle code uit en zorgt dat alle taken gesynchroniseerd uitgevoerd worden. Deze is verantwoordelijk voor bijvoorbeeld lichten precies te schakelen of motoren te laten bewegen.</p>
+<p>De microcontroller is het brein van de hardware. Deze chip voert alle code uit en zorgt dat alle taken gesynchroniseerd uitgevoerd worden. Deze is verantwoordelijk voor bijvoorbeeld lichten precies te schakelen, communicatie of motoren te laten bewegen.</p>
 <h3 id="status-leds">Status LEDs</h3>
 <p>Op de basismodule zijn vijf LEDs beschikbaar die ieder een andere functie hebben zoals weergegeven in de tabel hieronder.</p>
 <table>
@@ -1153,42 +1153,74 @@
 <tr>
 <td>ERROR</td>
 <td><span style="color:red">Rood</span></td>
-<td>Geeft aan als iets fout gaat op de basismodule</td>
+<td>Geeft een fout aan op de basismodule</td>
 </tr>
 </tbody>
 </table>
 <h3 id="ingangen-en-uitgangen">Ingangen en Uitgangen</h3>
-<p>De basismodule beschikt over twee RJ45/ethernet connectoren om te communiceren met de hoofdmodule en andere basismodules. Daarnaast beschikt dit bord over een normale uitgangsbus (Regular I/O / RIO) en een over hoge snelheidsbus (High Speed I/O / HSIO). Deze uitgangen zijn onder een hoek van 90 graden van elkaar neergezet om te voorkomen dat deze verkeerd om in het draagbord gestoken kan worden. De pin nummeringen zijn weergegeven op de printplaat.</p>
+<p>De basismodule beschikt over twee RJ45/8P8C/ethernet connectoren om te communiceren met de hoofdmodule en andere basismodules. Daarnaast beschikt dit bord over een normale uitgangsbus (Regular I/O / RIO) en een over hoge snelheidsbus (High Speed I/O / HSIO). Deze uitgangen zijn onder een hoek van 90 graden van elkaar neergezet om te voorkomen dat deze verkeerd om in het draagbord gestoken kan worden. De pin nummeringen zijn weergegeven op de printplaat.</p>
 <p>Daarnaast beschikt de basismodule over de "KILLSWITCH" pinnen. Deze zorgen ervoor dat alle stroom direct van de borden af wordt gegooid als de noodstop ingeduwd wordt.</p>
-<p>Elk van de pinnen van de normale, en hoge snelheids bus zijn afzonderlijk te besturen. Specifieke pinnen op de bussen kunnen een secundaire functie aanbieden, deze functies zijn te vinden in de datasheet van <a href="https://www.st.com/resource/en/datasheet/stm32f412ce.pdf">ST Microelectronics</a>.</p>
-<p>De "BOOT MODE" jumper zorgt ervoor dat de basismodule in primaire of secundaire modus opstart, het verschil hiertussen staat beschreven in de GWTONN Bibliotheek.</p>
+<p>Elk van de pinnen van de normale, en hoge snelheids bus zijn afzonderlijk te besturen. Specifieke pinnen op de bussen kunnen een secundaire functie aanbieden, deze functies zijn te vinden in de datasheet van <a href="../../assets/pdf/stm32f412rg.pdf">ST Microelectronics</a>
+De "BOOT MODE" jumper zorgt ervoor dat de basismodule in primaire of secundaire modus opstart, het verschil hiertussen staat beschreven in de GWTONN Bibliotheek.</p>
 <p>Er zit ook een microSD kaart lezer op de basismodule. Deze zal het draaiprogramma bevatten en een log schrijven over wat er allemaal gebeurt. De log kan gebruikt worden als evaluatie om te kijken wat er goed en slecht gaat.</p>
 <p>De reset knop is bedoeld voor tijdens het programmeren of in geval van ernstige fouten die eventueel op te lossen zijn door opnieuw opstarten.</p>
 <h4 id="programmeeruitlees-ingangen-en-uitgangen">Programmeer/Uitlees ingangen en uitgangen</h4>
 <p>De basismodule bevat een SWD interface (Serial Wire Debug) waarmee de basismodule geprogrammeerd kan worden. Deze interface is te herkennen door de volgende pinnen:</p>
-<ol>
-<li>GND</li>
-<li>SWO</li>
-<li>SWDIO</li>
-<li>SWCLK</li>
-<li>3V3</li>
-</ol>
+<table>
+<thead>
+<tr>
+<th><strong>Pin</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GND</td>
+</tr>
+<tr>
+<td>SWO</td>
+</tr>
+<tr>
+<td>SWDIO</td>
+</tr>
+<tr>
+<td>SWCLK</td>
+</tr>
+<tr>
+<td>3V3</td>
+</tr>
+</tbody>
+</table>
 <p>Hier zijn de 3V3 en GND de 3.3 V voedings pinnen.</p>
 <p>Als uitleesbus is er in het geval van fouten een UART bus toegevoegd, deze is softwarematig in te stellen naar wens en is te herkennen aan de volgende pinnen:</p>
-<ol>
-<li>TX</li>
-<li>RX</li>
-<li>3V3</li>
-<li>GND</li>
-</ol>
+<table>
+<thead>
+<tr>
+<th><strong>Pin</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RX</td>
+</tr>
+<tr>
+<td>TX</td>
+</tr>
+<tr>
+<td>GND</td>
+</tr>
+<tr>
+<td>3V3</td>
+</tr>
+</tbody>
+</table>
 <p>Hier zijn de 3V3 en GND de 3.3 V voedings pinnen.</p>
 <h4 id="hoge-snelheidsbus">Hoge snelheidsbus</h4>
 <p>De pinnen van de microcontroller die gekoppeld zijn aan de hoge snelheidsbus zijn als volgt:</p>
 <table>
 <thead>
 <tr>
-<th>HSIO Pin</th>
-<th>Microcontroller pin</th>
+<th><strong>HSIO Pin</strong></th>
+<th><strong>Microcontroller pin</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -1251,8 +1283,8 @@
 <table>
 <thead>
 <tr>
-<th>RIO Pin</th>
-<th>Microcontroller pin</th>
+<th><strong>RIO Pin</strong></th>
+<th><strong>Microcontroller pin</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -1327,7 +1359,7 @@
 </tbody>
 </table>
 <h3 id="communicatie">Communicatie</h3>
-<p>De hoofdcommunicatie tussen borden die over heel de wagen verspreid zijn word is een CAN bus. Dit is een robuuste comunicatiebus die onder andere gebruikt word in auto's. Deze bus is elektrisch geisoleerd van de rest van de basismodule. Dit is gedaan omdat in het geval er een andere basismodule catastrofaal beschadigd niet alle bordjes beschadigen. Meer informatie over het gebruik van de bus is te vinden onder het kopje <a href="../bus/">Busarchitectuur</a>.</p>
+<p>De hoofdcommunicatie tussen borden die over heel de wagen verspreid zijn word is een CAN bus. Dit is een robuuste comunicatiebus die onder andere gebruikt word in auto's. Deze bus is elektrisch geisoleerd van de rest van de basismodule. Dit is gedaan omdat in het geval er een andere basismodule catastrofaal beschadigd, niet alle bordjes beschadigen. Meer informatie over het gebruik van de bus is te vinden onder het kopje <a href="../bus/">Busarchitectuur</a>.</p>
 
 
 

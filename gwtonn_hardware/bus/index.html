@@ -1063,7 +1063,7 @@
 <p><img alt="afbeelding van een bus architectuur. Een lijn met aan de ene kant een kop en aan de andere kant een staart. Tussen de kop en de staart zijn apparaten aan de bus verbonden." src="../afbeeldingen/bus_architectuur.png" /></p>
 <p>Deze bus architectuur is galvanisch geisoleerd tot alle individuele modules tot 2 kV, waardoor een module die aan de bus hangt catastrofaal kan falen zonder de rest van het netwerk mee te nemen.</p>
 <h2 id="fysieke-laag">Fysieke laag</h2>
-<p>De fysieke aansluiting van de bus is een CAT-5 kabel. Over deze kabel gaan de volgende signalen:</p>
+<p>De fysieke aansluiting van de bus is een CAT-5 kabel met RJ45 (ookwel 8P8C) connectoren. Over deze kabel gaan de volgende signalen:</p>
 <ul>
 <li>CAN</li>
 <li>Spanning</li>
@@ -1073,9 +1073,9 @@
 <table>
 <thead>
 <tr>
-<th><strong>draadnummer</strong></th>
-<th><strong>kleur</strong></th>
-<th><strong>functie</strong></th>
+<th><strong>Draadnummer</strong></th>
+<th><strong>Kleur</strong></th>
+<th><strong>Functie</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -1122,13 +1122,35 @@
 </tbody>
 </table>
 <h2 id="aansluitingen">Aansluitingen</h2>
-<p><img alt="ploatje" src="../afbeeldingen/detailed_bus.png" /></p>
+<p><img alt="picture" src="../afbeeldingen/detailed_bus.png" /></p>
 <h3 id="can">CAN</h3>
-<p>CAN is een automotive communicatie standaard die bekend staat om zijn robuustheid. Het heeft een positieve en negatieve draad nodig die het liefst een twisted pair vormen.</p>
+<p>CAN is een automotive communicatie standaard die bekend staat om zijn robuustheid. Het heeft een positieve en negatieve draad nodig die het liefst een twisted pair vormen voor signaalintegriteit. De negatieve draad heeft het omgekeerde signaal van de positieve draad.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Bitwaarde</strong></th>
+<th><strong>CAN positief</strong></th>
+<th><strong>CAN negatief</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (Recessief)</td>
+<td>5 V</td>
+<td>0 V</td>
+</tr>
+<tr>
+<td>0 (Dominant)</td>
+<td>0 V</td>
+<td>5 V</td>
+</tr>
+</tbody>
+</table>
 <h2 id="spanning">Spanning</h2>
-<p>De CAN bus is een bepaald hardware protocol en heeft dus een driver chip nodig. De CAN bus is galvanisch geisoleerd van de modules en heeft dus aparte spanning nodig. Deze spanning is volgens Power-over-Ethernet standaard gestuurd.</p>
+<p>De CAN bus is een bepaald hardware protocol en heeft een aansturing chip nodig. De CAN bus is galvanisch geisoleerd van alle modules en heeft hierdoor een aparte spanning nodig. Deze spanning word over twee twisted pairs gestuurd van de CAT-5 kabel.</p>
 <h3 id="noodstop">Noodstop</h3>
-<p>De noodstop is geimplementeerd met twee kabels, spanning en aarde. Op de kop van de bus wordt een spanning gecreëerd, die de hele bus op en neer gaat, om vervolgens in de kop zelf een relais aanstuurt. Alle noodstoppen staan in serie met elkaar en dus als er een wordt ingedrukt, opent de stroomkring zich. Hierdoor opent de relais die de modules </p>
+<p>De noodstop is geimplementeerd met twee kabels, spanning en ontvanger. Op de kop van de bus wordt een spanning gecreëerd, die de hele bus op en neer gaat, om vervolgens in de kop zelf een relais aanstuurt. Alle noodstoppen staan in serie met elkaar, wat betekent dat als er een wordt ingedrukt, de stroomkring onderbroken wordt. Hierdoor opent de relais die de modules uitschakelt.
+De noodstoppen zijn verspreid over heel de wagen.</p>
 
 
 

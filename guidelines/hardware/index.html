@@ -860,6 +860,30 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#huidige-programmeertool-stlinkv2-piggyback-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Huidige programmeertool STLINK/V2 + Piggyback Module
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Huidige programmeertool STLINK/V2 + Piggyback Module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#andere-programmers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Andere programmers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1199,6 +1223,30 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#huidige-programmeertool-stlinkv2-piggyback-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Huidige programmeertool STLINK/V2 + Piggyback Module
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Huidige programmeertool STLINK/V2 + Piggyback Module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#andere-programmers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Andere programmers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1229,7 +1277,13 @@ staat in het engels beschreven in <a href="https://greendome.tech/wp-content/upl
 <h2 id="schema">Schema</h2>
 <p>De volgende tekening is een schematische weergave van microcontroller aansluiting
 op de printplaat.</p>
-<p><img alt="Schema van de Microcontroller" src="../../assets/images/microcontroller_schematics.jpeg" /></p>
+<p><img alt="Schema van de Microcontroller" src="../../assets/images/microcontroller_schematics.png" /></p>
+<p>Bij projecten groter dan 10 componenten moeten subsheets gebruikt worden zoals te zien in onderstaande afbeelding. Alle connecties tussen sheets zullen met lijnen verbonden worden en met peilen aangegeven worden om de richting van data/stroomverkeer aan te geven.</p>
+<p><img alt="Schema met subsheets" src="../../assets/images/schematics_subsheet.png" /></p>
+<p>Indien er onderscheid tussen componentgroepen gemaakt moet worden moet dit binnen een sheet gebeuren zoals te zien in onderstaande afbeelding. Om losse componentgroepen te onderscheiden zullen er grensgebieden om de componentgroepen komen waarin de naam van de groep staat.</p>
+<p><img alt="Schema met sheets" src="../../assets/images/schematics_sheet.png" /></p>
+<p>Deze conventies zorgen voor een makkelijk te lezen en aan te passen schema.</p>
+<p>Er zal een polariteit geimplementeerd worden op de printplaten zodat componenten niet verkeerd ingestoken kunnen worden. Dit kan gedaan worden door asymmetrische connectoren te gebruiken of meerdere connectoren te gebruiken die asymmetrisch geplaatst zijn (hoek van 90 °, plaatsing schuin tegenover elkaar).</p>
 <h2 id="technische-specificatie">Technische specificatie</h2>
 <p>De microcontroller die gekozen is voor het project is de <strong>STM32F412RGT6</strong> van
 ST Microelectronics. Deze chip heeft genoeg ruimte en besturingsmogelijkheden om
@@ -1279,7 +1333,7 @@ voor verbeterde stabiliteit van het signaal.</p>
 nieuwe component gekeken worden naar de laad condensatoren.</p>
 <div class="admonition info">
 <p class="admonition-title">LET OP</p>
-<p>Dit component heeft een niet standaard footprint in KiCAD.</p>
+<p>Dit component heeft een niet standaard footprint in KiCAD. Pas de footprint van het component aan binnen KiCAD.</p>
 </div>
 <h2 id="programmeren-via-swd">Programmeren via SWD</h2>
 <p>Voor het programmeren van de STM32 word een STLINK/V2 gebruikt.
@@ -1312,6 +1366,11 @@ snelheidsbus (Regular I/O). De desbetreffende pinnen zijn te vinden onder het ko
 <p>De positieve pool moet op een van de 3V3 pinnen terecht komen via de voeding zelf
 of het STM32 bord. De negatieve pool kan verbonden worden met een GND pin op de
 basismodule of de STLINK/V2. Deze pinnen zijn op de basismodule gemarkeerd.</p>
+<h3 id="huidige-programmeertool-stlinkv2-piggyback-module">Huidige programmeertool STLINK/V2 + Piggyback Module</h3>
+<p>Om het programmeergemak te verhogen en risico op foutieve aansluitingen te verkleinen is er een printplaat ontwikkeld die een makkelijke connectie vormt tussen de STLINK/V2 en de piggyback module. Deze is te zien in onderstaande afbeelding.</p>
+<p><img alt="Programmer" src="../../assets/images/HW_programmer.png" /></p>
+<h4 id="andere-programmers">Andere programmers</h4>
+<p>Om voor andere programmeerbare bordjes ook te voorkomen dat het foutief aangesloten word zullen voor deze bordes een op maat gemaakte programmer ontworpen worden. </p>
 
 
 
