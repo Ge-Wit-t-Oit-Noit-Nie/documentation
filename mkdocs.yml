@@ -20,6 +20,9 @@ nav:
       - Coding conventies: guidelines/coding_conventions.md
       - Git: guidelines/git.md
       - Hardware: guidelines/hardware.md
+      - ST Application notes:
+          - AN2606 - Introduction to system memory boot mode on STM32 MCUs: assets/pdf/st_application_notes/AN2606.pdf
+            
   - Jaren:
       - 2025:
           - Over: year/2025/about.md
