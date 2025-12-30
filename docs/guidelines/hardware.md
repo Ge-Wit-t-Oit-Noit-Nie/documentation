@@ -1,44 +1,98 @@
-## Ontwerp programma hardware
-### Printplaat
-Voor het ontwerp van de printplaat word gebruik gemaakt van het gratis programma KiCAD. Dit is een printplaat ontwerp programma met ruime functionaliteit die voldoet aan al onze eisen. Een handleiding hiervoor staat in het engels beschreven in [deze link](https://greendome.tech/wp-content/uploads/2025/03/PCBGuide.pdf).
+# Ontwerp programma hardware
+
+## Printplaat
+
+Voor het ontwerp van de printplaat word gebruik gemaakt van het gratis programma
+[KiCAD](https://www.kicad.org/). Dit is een printplaat ontwerp programma met
+ruime functionaliteit die voldoet aan al onze eisen. Een handleiding hiervoor
+staat in het engels beschreven in [deze link](https://greendome.tech/wp-content/uploads/2025/03/PCBGuide.pdf).
+
+## Schema
+
+De volgende tekening is een schematische weergave van microcontroller aansluiting
+op de printplaat.
+
+![Schema van de Microcontroller](../assets/images/microcontroller_schematics.jpeg)
 
 ## Technische specificatie
-De microcontroller die gekozen is voor het project is de STM32F412RGT6 van ST Microelectronics. Deze chip heeft genoeg ruimte en besturingsmogelijkheden om voldoende programma's van komende jaren met gemak te kunnen draaien. Daarnaast bevat deze chip meerdere communicatiemogelijkheden die in de toekomst gebruikt kunnen worden.
+
+De microcontroller die gekozen is voor het project is de **STM32F412RGT6** van
+ST Microelectronics. Deze chip heeft genoeg ruimte en besturingsmogelijkheden om
+voldoende programma's van komende jaren met gemak te kunnen draaien. Daarnaast
+bevat deze chip meerdere communicatiemogelijkheden die in de toekomst gebruikt
+kunnen worden.
+
+[Download datasheet](../assets/pdf/stm32f412rg.pdf)
 
 ## Klokken van de microcontroller
-Een klok binnen een microcontroller zorgt voor coordinatie van vercheidene operaties. Er kunnen per microcontroller meerdere klokken gebruikt worden, binnen dit project worden er twee gebruikt.
+
+Een klok binnen een microcontroller zorgt voor coordinatie van vercheidene operaties.
+Er kunnen per microcontroller meerdere klokken gebruikt worden, binnen dit project
+worden er twee gebruikt.
+
 ### Hoge Snelheids Extern kristal (HSE)
-Voor het Hoge Snelheids Extern kristal (HSE) word momenteel een 8 MHz resonator gebruikt. Deze zijn niet duur en bieden meer precisie dan de ingebouwde RC klok. Een standaard integratie is te zien in de hieropvolgende afbeelding.
+
+Voor het Hoge Snelheids Extern kristal (HSE) word momenteel een 8 MHz resonator
+gebruikt. Deze zijn niet duur en bieden meer precisie dan de ingebouwde RC klok.
+Een standaard integratie is te zien in de hieropvolgende afbeelding.
 
 ![HSE_foto](afbeeldingen/CLK.png)
-Meer informatie over een fatsoenlijke layout en integratie is te vinden in AN2867 “[Oscillator design guide for ST microcontrollers](https://www.st.com/resource/en/application_note/an2867-guidelines-for-oscillator-design-on-stm8afals-and-stm32-mcusmpus-stmicroelectronics.pdf)", beschikbaar via de website van ST-Microelectronics. 
 
-Mocht er gekozen worden voor het gebruik van de interne clock, kan de plaatsing van de relevante componenten tijdens de print assemblage overgeslagen worden. 
-Stel dat de klok het niet doet na verandering van het component kan eventueel de externe weerstand (R<sub>EXT</sub> in bovenstaande afbeelding) naar 0 Ω gezet worden.
+Meer informatie over een fatsoenlijke layout en integratie is te vinden in AN2867
+“[Oscillator design guide for ST microcontrollers](https://www.st.com/resource/en/application_note/an2867-guidelines-for-oscillator-design-on-stm8afals-and-stm32-mcusmpus-stmicroelectronics.pdf)",
+beschikbaar via de website van ST-Microelectronics.
+
+Mocht er gekozen worden voor het gebruik van de interne clock, kan de plaatsing
+van de relevante componenten tijdens de print assemblage overgeslagen worden.
+Stel dat de klok het niet doet na verandering van het component kan eventueel de
+externe weerstand (R<sub>EXT</sub> in bovenstaande afbeelding) naar 0 Ω gezet worden.
+
 #### Huidig component in gebruik
-Momenteel word gebruik van de *Kitelco 8 MHz SX-1T&RC16* gemaakt. Dit is een 8 MHz resonator met aan weerskanten laad condensatoren van 16 pF, die zorgen voor verbeterde stabiliteit van het signaal. Daarnaast is de externe weerstand (R<sub>EXT</sub> in bovenstaande afbeelding) berekend op 1.2 kΩ via sectie 3.5.3 van AN2867.
 
-Indien dit in de toekomst verandert moet er opnieuw via de datasheet van het nieuwe component gekeken worden naar de laad condensatoren en naar de externe weerstand. 
+Momenteel word gebruik van de *Kitelco 8 MHz SX-1T&RC16* gemaakt. Dit is een 8
+MHz resonator met aan weerskanten laad condensatoren van 16 pF, die zorgen voor
+verbeterde stabiliteit van het signaal. Daarnaast is de externe weerstand
+(R<sub>EXT</sub> in bovenstaande afbeelding) berekend op 1.2 kΩ via sectie 3.5.3
+van AN2867.
 
+Indien dit in de toekomst verandert moet er opnieuw via de datasheet van het
+nieuwe component gekeken worden naar de laad condensatoren en naar de externe
+weerstand.
 
 ### Real-Time Clock kristal (RTC)
-Voor de RTC is een externe clock gewenst en in gebruik, omdat deze meer precisie bied qua dingen die op tijd basis gaan. Deze moet een frequentie hebben van 32.768 kHz, wat een industrie standaard is. Hieronder is een standaard integratie weergegeven.
+
+Voor de RTC is een externe clock gewenst en in gebruik, omdat deze meer precisie
+bied qua dingen die op tijd basis gaan. Deze moet een frequentie hebben van
+32.768 kHz, wat een industrie standaard is. Hieronder is een standaard integratie
+weergegeven.
 
 ![RTC_foto](afbeeldingen/RTC.png)
 
- Meer informatie over een fatsoenlijke layout en integratie is te vinden in AN2867 “[Oscillator design guide for ST microcontrollers](https://www.st.com/resource/en/application_note/an2867-guidelines-for-oscillator-design-on-stm8afals-and-stm32-mcusmpus-stmicroelectronics.pdf)", beschikbaar via de website van ST-Microelectronics.
+ Meer informatie over een fatsoenlijke layout en integratie is te vinden in
+ AN2867 “[Oscillator design guide for ST microcontrollers](https://www.st.com/resource/en/application_note/an2867-guidelines-for-oscillator-design-on-stm8afals-and-stm32-mcusmpus-stmicroelectronics.pdf)",
+ beschikbaar via de website van ST-Microelectronics.
 
 #### Huidig component in gebruik
-Momenteel word gebruik van de *YIC 32.768K12.5PI/MC306* gemaakt. Dit is een 32.768 kHz resonator met aan weerskanten laad condensatoren van 7 pF, die zorgen voor verbeterde stabiliteit van het signaal.
 
-Indien dit in de toekomst verandert moet er opnieuw via de datasheet van het nieuwe component gekeken worden naar de laad condensatoren. **LET OP: Dit component heeft een niet standaard footprint in KiCAD.**
+Momenteel word gebruik van de *YIC 32.768K12.5PI/MC306* gemaakt. Dit is een
+32.768 kHz resonator met aan weerskanten laad condensatoren van 7 pF, die zorgen
+voor verbeterde stabiliteit van het signaal.
+
+Indien dit in de toekomst verandert moet er opnieuw via de datasheet van het
+nieuwe component gekeken worden naar de laad condensatoren.
+
+!!! info "LET OP"
+    Dit component heeft een niet standaard footprint in KiCAD.
 
 ## Programmeren via SWD
-Voor het programmeren van de STM32 word een STLINK/V2 gebruikt. Deze heeft de volgende pinconfiguratie beschikbaar:
+
+Voor het programmeren van de STM32 word een STLINK/V2 gebruikt.
+Deze heeft de volgende pinconfiguratie beschikbaar:
 
 ![STLINK_foto](afbeeldingen/STLINK.jpg)
 
-Voor het programmeren van de microcontroller moeten de volgende pinnen aangesloten zijn op de volgende manier:
+Voor het programmeren van de microcontroller moeten de volgende pinnen
+aangesloten zijn op de volgende manier:
 
 1. GND<sub>STLINK</sub> naar GND<sub>STM32</sub>
 2. VDD<sub>STLINK</sub> naar 3V3<sub>STM32</sub>
@@ -47,8 +101,24 @@ Voor het programmeren van de microcontroller moeten de volgende pinnen aangeslot
 5. MCU VDD <sub>STLINK</sub> **(ookwel VDUT genoemd)** naar 3V3<sub>STM32</sub>
 
 ### Externe voeding
-Indien de STLINK/V2 op zichzelf niet genoeg stroom levert kan er een externe voeding gebruikt worden in combinatie met de hierbovenstaande pinconfiguratie. **LET OP: sluit niets met een spanning hoger dan 3.3 V aan op de 3V3 poort, dit kan schade aan de basismodule of STLINK toebrengen! Verifieer dit voor het aansluiten met een multimeter.**
+
+Indien de STLINK/V2 op zichzelf niet genoeg stroom levert kan er een externe
+voeding gebruikt worden in combinatie met de hierbovenstaande pinconfiguratie.
+
+!!! danger "Waarschuwing"
+    Sluit niets met een spanning hoger dan 3.3 V aan op de 3V3 poort, dit kan
+    schade aan de basismodule of STLINK toebrengen! Verifieer dit voor het
+    aansluiten met een multimeter.
+
 #### Voeding van 5 V tot 30 V
-De positieve pool van deze voeding moet aangesloten worden op de VIN pin en de negatieve pool op de GND pin. Beide pinnen zijn te vinden op de normale snelheidsbus (Regular I/O). De desbetreffende pinnen zijn te vinden onder het kopje [Hardware](../gwtonn_hardware/piggyback.md).
+
+De positieve pool van deze voeding moet aangesloten worden op de VIN pin en de
+negatieve pool op de GND pin. Beide pinnen zijn te vinden op de normale
+snelheidsbus (Regular I/O). De desbetreffende pinnen zijn te vinden onder het kopje
+[Hardware](../gwtonn_hardware/piggyback.md).
+
 #### Voeding van 3.3 V
-De positieve pool moet op een van de 3V3 pinnen terecht komen via de voeding zelf of het STM32 bord. De negatieve pool kan verbonden worden met een GND pin op de basismodule of de STLINK/V2. Deze pinnen zijn op de basismodule gemarkeerd.
+
+De positieve pool moet op een van de 3V3 pinnen terecht komen via de voeding zelf
+of het STM32 bord. De negatieve pool kan verbonden worden met een GND pin op de
+basismodule of de STLINK/V2. Deze pinnen zijn op de basismodule gemarkeerd.

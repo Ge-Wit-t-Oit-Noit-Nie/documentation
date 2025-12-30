@@ -1,67 +1,111 @@
 # CAN
 
-Voor de communicatie tussen de verschillende borden, wordt gebruik gemaakt
-van het CAN protocol.
+Voor het communiceren tussen de verschillende componenten (piggybags) wordt
+gebruik gemaakt van de CAN bus. In de firmware wordt deze ontsloten en benaderd als
+```UART1```.
 
-## Sequence diagram
+## Protocol
+
+CAN is de hardware matige connectie tussen 2 or meer componenten. Voor de software
+hebben we een protocol gemaakt. Deze is als volgt:
 
 ```puml
 @startuml
-participant master [
-    =Controller
-]
-participant client_id1 [
-    =Client
-    ----
-    ""device_id""
-]
+autoactivate on
 
-group Broadcast
-    master -> client_id1: message[time]
-    master -> client_id1: message[start]
-    master -> client_id1: message[whoisthere]
-    client_id1 --> master: ACK(device_id)
-end
+participant "Main board" as Main
+participant "Client" as Client
 
-group Directed
-    master -> client_id1: message[ping(device_id)]
-    client_id1 --> master: ack(device_id)
-    
-    client_id1 -> master: message[fault(device_id, code)]
-    master --> client_id1: ack(device_id)
-end
+== Timer ==
+Main -> Client : current_time
 
 @enduml
-
 ```
 
-### Type bericht
+Voor de protocol wordt gebruik gemaakt van een standaard berichtformaat:
 
-Zoals zichtbaar in de sequence diagram, zijn er 2 soorten berichten
+| BYTE   | Waarde     | Omschrijving |
+| --     | ---        | ---          |
+| 1      | CODE       | Een code de signaleerd wat het bericht is |
+| 1..9   | Content    | De inhoud van het bericht |
+| 10..12 | Terminator | 0xFF, 0xFF, 0xFF --> Einde bericht indicator |
 
-- **Broadcast**: Dit bericht is voor iedereen bestemd.
-- **Directed**: Dit bericht is specifiek voor een bord.
+Zoals zichtbaar in de tabel bestaad een bericht altijd uit *12 bytes*.
+Hiervoor is gekozen om het eenvoudig te maken om een bericht te ontvangen.
+
+## Gebruik van DMA
+
+Een bericht vanaf de CAN bus wordt via een **DMA** stream doorgezet 
+naar het geheugen voor verwerking.
+
+```puml
+@startuml
+
+CAN -> UART
+UART -> DMA
+DMA -> Code
+
+@enduml
+```
+
+De keuze van het gebruik van DMA is vrij simpel:
+Dit garandeerd de aankomst van berichten. Het vullen van geheugen
+via DMA gebeurt buiten de CPU om en is daarmee veel sneller.
+
+## Berichten
+
+De berichten die op dit momement beschikbaar zijn staan in dit hoofdstuk.
+
+### MESSAGE_CODE_TIME
+
+De **MESSAGE_CODE_TIME** bericht is een *broadcast* bericht. Dit bericht
+wordt verstuurd door de controller board en wordt door iedereen ontvangen.
+Het bericht stuurd de actuele tijd en kan gebruikt worden om de klokken
+op elkaar af te stemmen.
+
+De tijd wordt verstuurd als 17 bits en heeft een specifieke compressie.
+Gebruik de functie ```dt_decode(encoded_time, &decoded_time);``` om de 
+tijd te decoderen.
+
+#### Voorbeeld
+
+De volgende implementatie kan de tijd ontcijferen en de klok zetten.
+
+Hierbij is *uartRxBuf* de buffer die gevult wordt door de *DMA*.  
+
+```c
+// cast 8 bytes from the buffer to a uint64_t
+encoded_time = (dt_dense_time)uartRxBuf[1] << 56 |
+               (dt_dense_time)uartRxBuf[2] << 48 |
+               (dt_dense_time)uartRxBuf[3] << 40 |
+               (dt_dense_time)uartRxBuf[4] << 32 |
+               (dt_dense_time)uartRxBuf[5] << 24 |
+               (dt_dense_time)uartRxBuf[6] << 16 |
+               (dt_dense_time)uartRxBuf[7] << 8 |
+               (dt_dense_time)uartRxBuf[8];
+
+datetime_t decoded_time = {0};
+dt_decode(encoded_time, &decoded_time);
+is_set_time(
+     decoded_time.hour, decoded_time.minute,
+     decoded_time .second); // Set the time in the internal sensors module
+is_set_date(
+     .year, decoded_time.month,
+     decoded_time.day); // Set the date in the internal sensors module
 
 
-## CAN bericht
 
-Ieder bericht volgt een vast patroon:
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+    if (huart->Instance == USART1) {
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7,
+                          GPIO_PIN_SET); // Set a pin to indicate activity
 
-- BERICHT_CODE (1 BYTE)
-- (OPTIONEEL) BOARD_ID
-- DATA (0-x BYTE)
-- TERMINATION (0xFF, 0xFF, 0xFF)
+        uart_rx_received = true;
 
-## Bericht specificatie
-
-Ieder bericht heeft een specifieke code. In dit hoofdstuk wordt
-de specificatie van ieder bericht gegeven.
-
-### TIME
-
-Het tijd bericht verstuurd de actuele clocktijd. Dit bericht kan
-gebruikt worden om de RTC te corrigeren.
-
-| Type bericht | Bericht code | Data         |
-| ------------ | ------------ | ------------ |
-| BROADCAST    | 1            | encoded_time |
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7,
+                          GPIO_PIN_RESET); // Set a pin to indicate activity
+        // Restart interrupt for next byte
+        HAL_UART_Receive_DMA(&huart1, uartRxBuf, UART_RX_BUF_SIZE);
+    }
+}
+```
