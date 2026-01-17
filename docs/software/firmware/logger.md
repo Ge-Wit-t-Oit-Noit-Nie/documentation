@@ -10,17 +10,24 @@ Voor het opslaan wordt een bestand aangemaakt op de SD Kaart met de naam "logger
 Kijk naar de volgende entry:
 
 ```csv
-[00:00:09],0x00000005,0x00000007,0x00001A9E,0x00000633,0x000000F0
+[00:00:01],18,458,2826,288,0
 ```
 
 De volgende gegevens worden weergegeven:
 
-* **[13:18:16]**: Tijd van het bericht
-* **0x00000005**: De instructiepointer
-* **0x00000007**: *shutdown_index* op moment van loggen
-* **0x00001A9E**: Interne temperatuur van de STM32
-* **0x00000633**: Actuele voltage op moment van schrijven van de STM32
-* **0x000000F0**: De hardware trigger die deze log genereerde (indien beschikbaar, anders 0)
+* **[00:00:01]**: Tijd van het bericht
+* **18**: De instructiepointer
+* **458**: *shutdown_index* op moment van loggen
+* **2826**: Interne temperatuur van de STM32
+* **288**: Actuele voltage op moment van schrijven van de STM32
+* **0**: De hardware trigger die deze log genereerde (indien beschikbaar, anders 0)
+
+!!! note Opmerking
+    Er is een beperking in de firmware dat een **float** niet goed geformateerd word.
+    De temperatuur en de voltage worden weggeschreven als integers.
+    Om de actuele waarde te hebben, moet de temperatuur en voltage
+    door 100 gedeeld worden.
+    ```float temp = temperature / 100```
 
 ## Logbericht sturen
 
@@ -29,11 +36,9 @@ Volgende stukje code is een voorbeeld:
 
 ```c
 telemetry_t telemetry = {
-	program_controller_registers->instruction_pointer,
-	program_controller_registers->shutdown_instruction_pointer,
-	is_get_temperature(),
-	is_get_vref(),
-	0,
+    program_controller_registers->instruction_pointer,
+    program_controller_registers->shutdown_instruction_pointer,
+    0,
 };
 if (osOK != osMessageQueuePut(loggerQueueHandle, &telemetry, 0, 0U))
 {
@@ -54,8 +59,6 @@ typedef struct
 {
     uint16_t instruction_pointer;
     uint16_t shutdown_index_register;
-    uint16_t temperature;
-    uint16_t vrefint;
     uint8_t trigger;
 } telemetry_t;
 ```
@@ -66,6 +69,4 @@ Hiervoor geld de volgende definitie:
 | -----                   | -------- | ------------ |
 | instruction_pointer     | uint32_t | De huidige waare van de *instruction_pointer* |
 | shutdown_index_register | uint16_t | De huidige waarde van de *shutdown_index_register* |
-| temperature             | uint16_t | De huidige temperatuur van de STM32 in graden celcius * 1000 |
-| vrefint                 | uint16_t | De huidige voltage van de STM32 in mV |
 | trigger                 | uint8_t | Het event dat de log initieerde |
