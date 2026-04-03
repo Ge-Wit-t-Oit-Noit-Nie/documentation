@@ -451,39 +451,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compileren" class="md-nav__link">
-    <span class="md-ellipsis">
-      Compileren
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Compileren">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#taskfiledev" class="md-nav__link">
-    <span class="md-ellipsis">
-      Taskfile.dev
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python
-    </span>
-  </a>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#binair-bestand" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1150,39 +1117,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compileren" class="md-nav__link">
-    <span class="md-ellipsis">
-      Compileren
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Compileren">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#taskfiledev" class="md-nav__link">
-    <span class="md-ellipsis">
-      Taskfile.dev
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python
-    </span>
-  </a>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#binair-bestand" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1289,59 +1223,42 @@ De waarde wordt dan gezet met behulp van <strong>1</strong> en <strong>0</strong
 </ul>
 <h3 id="voorbeeld">Voorbeeld</h3>
 <p>Bekijk het volgende voorbeeld</p>
-<div class="highlight"><pre><span></span><code><span class="nl">BEGIN_PROGRAMMA</span><span class="p">:</span>
-<span class="w"> </span><span class="n">ZET_POORT_AAN</span><span class="w"> </span><span class="p">(</span><span class="n">POORT</span><span class="o">=</span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="n">HSIO</span><span class="o">=</span><span class="mh">0x00</span><span class="p">);</span>
-<span class="w"> </span><span class="n">ZET_POORT_UIT</span><span class="w"> </span><span class="p">(</span><span class="n">POORT</span><span class="o">=</span><span class="mh">0x01</span><span class="p">,</span><span class="w"> </span><span class="n">HSIO</span><span class="o">=</span><span class="mh">0x00</span><span class="p">);</span>
-<span class="w"> </span><span class="n">WACHTEN</span><span class="w"> </span><span class="p">(</span><span class="n">delay</span><span class="o">=</span><span class="mh">0x05DC</span><span class="p">);</span>
-<span class="w"> </span><span class="n">FLIP_POORT</span><span class="w"> </span><span class="p">(</span><span class="n">POORT</span><span class="o">=</span><span class="mh">0x01</span><span class="p">,</span><span class="w"> </span><span class="n">HSIO</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
-<span class="w"> </span><span class="n">BEWAAR_STATUS</span><span class="p">;</span>
-<span class="w"> </span><span class="n">SPRING</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="mh">0x0003</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">verbind_event_met_functie</span><span class="p">(</span><span class="n">STOP</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="n">EINDE</span><span class="p">);</span>
+<span class="n">verbind_event_met_functie</span><span class="p">(</span><span class="n">PAUZE</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="n">PAUZE_PROGRAMMA</span><span class="p">);</span>
+<span class="n">verbind_event_met_functie</span><span class="p">(</span><span class="n">VERVOLG</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="n">RESET</span><span class="p">);</span>
+<span class="n">verbind_event_met_functie</span><span class="p">(</span><span class="n">INT06</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="n">PAUZE_PROGRAMMA</span><span class="p">);</span>
+
+<span class="n">BEWAAR_STATUS</span><span class="p">;</span>
+<span class="n">spring</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">RESET</span><span class="p">);</span>
+
+<span class="nl">BLINKY</span><span class="p">:</span>
+<span class="w">    </span><span class="n">zet_poort_aan</span><span class="p">(</span><span class="n">poort</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">hsio</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">wachten</span><span class="p">(</span><span class="mh">0xff</span><span class="p">);</span>
+<span class="w">    </span><span class="n">zet_poort_uit</span><span class="p">(</span><span class="n">poort</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">hsio</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">wachten</span><span class="p">(</span><span class="mh">0xff</span><span class="p">);</span>
+<span class="w">    </span><span class="n">spring</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">BLINKY</span><span class="p">);</span>
+
+<span class="nl">RESET</span><span class="p">:</span>
+<span class="w">    </span><span class="n">zet_poort_aan</span><span class="p">(</span><span class="n">poort</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">hsio</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">wachten</span><span class="p">(</span><span class="mh">0xff</span><span class="p">);</span>
+<span class="w">    </span><span class="n">spring</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">BLINKY</span><span class="p">);</span>
+
+<span class="nl">EINDE</span><span class="p">:</span>
+<span class="w">    </span><span class="n">zet_poort_uit</span><span class="p">(</span><span class="n">poort</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">hsio</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">STOPPEN</span><span class="p">;</span>
 
 <span class="nl">PAUZE_PROGRAMMA</span><span class="p">:</span>
-<span class="w"> </span><span class="n">ZET_POORT_AAN</span><span class="w"> </span><span class="p">(</span><span class="n">POORT</span><span class="o">=</span><span class="mh">0x0F</span><span class="p">,</span><span class="w"> </span><span class="n">HSIO</span><span class="o">=</span><span class="mh">0x00</span><span class="p">);</span>
-<span class="w"> </span><span class="n">PAUZE</span><span class="p">;</span>
-
-<span class="nl">EINDE_PROGRAMMA</span><span class="p">:</span>
-<span class="w"> </span><span class="n">BEWAAR_STATUS</span><span class="p">;</span>
-<span class="w"> </span><span class="n">STOPPEN</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PAUZE</span><span class="p">;</span>
+<span class="w">    </span><span class="n">spring</span><span class="p">(</span><span class="n">RESET</span><span class="p">);</span>
 </code></pre></div>
 <p>In dit programma, worden de volgende stappen uitgevoerd:</p>
 <ol>
-<li>Identificeer het begin programma</li>
-<li>Zet de IO Port 0 aan</li>
-<li>Zet de IO Port 1 uit</li>
-<li>Wachten voor 0x05dc seconden</li>
-<li>Bewaar de status op dit moment</li>
-<li>Spring terug naar index 0x03</li>
-<li>Identificeer het pauze programma</li>
-<li>Zet de IO Port 0x0F aan</li>
-<li>Identifiveer het einde programma</li>
-<li>Bewaar de status</li>
-<li>Stop het programma</li>
+<li>Verbind het can-event STOP met label EINDE</li>
+<li>Verbind het can-event PAUZE met label PAUZE_PROGRAMMA</li>
+<li>Verbind het can-event VERVOLG met label RESET</li>
+<li>Verbind het can-event INT06 met label PAUZE_PROGRAMMA</li>
+<li>Verzend de telemetry naar de CAN controller</li>
 </ol>
-<h2 id="compileren">Compileren</h2>
-<h3 id="taskfiledev">Taskfile.dev</h3>
-<p>Voor het eenvoudig compileren is er een <em>taskfile</em> aangemaakt.
-Deze kan aangeroepen worden met:</p>
-<div class="highlight"><pre><span></span><code>task board_01
-</code></pre></div>
-<p>In dit geval zal een bestand aangemaakt worden in de build directory met de naam
-<em>board_01.bin</em>.</p>
-<p>Uiteraard kan de naam board_01 vervangen worden door een van de andere programma's.</p>
-<div class="admonition note opmerking">
-<p class="admonition-title">Note</p>
-<p>Zorg wel dat je in een virtuele python omgeving zit (Zie <a href="#python-starten">Python starten</a>)</p>
-</div>
-<h3 id="python">Python</h3>
-<p>Start een <a href="#python-starten">python</a> sessie en type het volgende</p>
-<div class="highlight"><pre><span></span><code><span class="n">python</span> <span class="n">src</span><span class="p">/</span><span class="n">gpc</span><span class="p">.</span><span class="n">py</span> <span class="n">-i</span> <span class="p">&lt;</span><span class="n">input_file</span><span class="p">&gt;</span> <span class="n">-o</span> <span class="p">&lt;</span><span class="n">output_file</span><span class="p">&gt;</span> <span class="n">-v</span>
-</code></pre></div>
-<p>Met de volgende parameters:</p>
-<ul>
-<li>-i, --input: de broncode die gecompileerd moet worden</li>
-<li>-o, --output: het .bin bestand dat gemaakt wordt</li>
-<li>-v, --verbose: Volg de uitput</li>
-</ul>
 <h3 id="binair-bestand">Binair bestand</h3>
 <p>De output van de compiler is een binair bestand. Deze kan met speciale progarmma's
 gelezen worden. <a href="https://code.visualstudio.com/">VSCode</a> met een
